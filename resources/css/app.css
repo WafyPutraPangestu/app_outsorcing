@@ -1,3 +1,7 @@
+/* ============================================================
+   SEMUA @import HARUS DI PALING ATAS — PostCSS/Vite rule
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
 @import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -5,7 +9,10 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap");
+/* ============================================================
+   VALDO — NEUMORPHIC 2.0 | Futuristic Soft Theme
+   Stack: Laravel · Livewire · Tailwind CSS · Alpine.js
+   ============================================================ */
 
 /* ============================================================
    DESIGN TOKENS — CSS CUSTOM PROPERTIES

@@ -36,7 +36,14 @@ class Login extends Component
 
         session()->regenerate();
 
-        $this->redirect(route('dashboard'), navigate: true);
+        if (Auth::user()->role === 'admin') {
+            $this->redirect(route('admin.dashboard'), navigate: true);
+        } else if (Auth::user()->role === 'manajemen') {
+            $this->redirect(route('manajemen.dashboard'), navigate: true);
+        } else {
+            $this->redirect(route('home'), navigate: true);
+        }
+        // $this->redirect(route('manajemen.dashboard'), navigate: true);
     }
 
     public function render()
