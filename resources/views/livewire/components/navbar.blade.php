@@ -46,7 +46,7 @@
                 <span style="display:none" aria-hidden="true">V</span>
             </div>
             <div class="valdo-sidebar-logo-text">
-                <span class="block" style="font-size:1.05rem;font-weight:700;color:#e2e5f0;line-height:1.2">PT
+                <span class="block" style="font-size:1.05rem;font-weight:700;color:#000;line-height:1.2">PT
                     Valdo</span>
                 <span class="block"
                     style="font-size:.65rem;color:var(--color-accent-blue);font-weight:600;text-transform:uppercase;letter-spacing:.08em">Outsourcing
@@ -320,7 +320,7 @@
                 viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" d="M9 5l7 7-7 7" />
             </svg>
-            <span class="text-[#c8ccdc] font-semibold">
+            <span class="text-[#000] font-semibold">
                 {{ ucfirst(last(request()->segments()) ?: 'Home') }}
             </span>
         </nav>

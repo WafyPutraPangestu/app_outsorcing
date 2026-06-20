@@ -15,28 +15,23 @@ use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // 1. Membuat Akun Sistem (Admin & Manajemen)
         User::create([
             'name'     => 'Super Admin Valdo',
             'email'    => 'admin@gmail.com',
             'role'     => 'admin',
             'password' => Hash::make('password123'),
         ]);
-
         User::create([
             'name'     => 'Manajemen Operasional',
             'email'    => 'manajemen@gmail.com',
             'role'     => 'manajemen',
             'password' => Hash::make('password123'),
         ]);
-
-        // 2. Membuat Data Master: Kriteria Penilaian (Syarat Total Bobot = 100)
         KriteriaPenilaian::insert([
             [
                 'nama_kriteria' => 'Kedisiplinan & Kehadiran',
@@ -60,23 +55,18 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now()
             ],
         ]);
-
-        // 3. Membuat Data Master: Klien (Menggunakan Email Magic Link Request)
         $klienWafy = Klien::create([
             'nama_perusahaan' => 'PT Teknologi Wafy',
             'alamat_kantor' => 'Jl. Sudirman Tower A, Lt. 12, Jakarta',
             'email_hrd_klien' => 'wafyputrapangestu@gmail.com',
             'nama_kontak_person' => 'Bapak Wafy (HR Manager)',
         ]);
-
         $klienWahyu = Klien::create([
             'nama_perusahaan' => 'PT Wahyu Sejahtera',
             'alamat_kantor' => 'Jl. Gatot Subroto No. 45, Jakarta',
             'email_hrd_klien' => 'wahyusyipul@gmail.com',
             'nama_kontak_person' => 'Bapak Wahyu (Direktur Operasional)',
         ]);
-
-        // 4. Membuat Data Master: Karyawan Outsource
         $karyawan1 = Karyawan::create([
             'nik' => 'KRY-2026001',
             'nama_karyawan' => 'Budi Santoso',
@@ -86,7 +76,6 @@ class DatabaseSeeder extends Seeder
             'posisi' => 'IT Support Specialist',
             'status_karyawan' => 'aktif',
         ]);
-
         $karyawan2 = Karyawan::create([
             'nik' => 'KRY-2026002',
             'nama_karyawan' => 'Siti Aminah',
@@ -96,24 +85,19 @@ class DatabaseSeeder extends Seeder
             'posisi' => 'Customer Service Representative',
             'status_karyawan' => 'aktif',
         ]);
-
-        // 5. Membuat Data Penempatan Karyawan di Perusahaan Klien
-        // Penempatan Budi di PT Wafy
         Penempatan::create([
             'id_karyawan' => $karyawan1->id_karyawan,
             'id_klien' => $klienWafy->id_klien,
-            'tanggal_mulai' => Carbon::now()->subMonths(3)->format('Y-m-d'), // Sudah jalan 3 bulan
-            'tanggal_selesai' => Carbon::now()->addMonths(9)->format('Y-m-d'), // Sisa 9 bulan kontrak
+            'tanggal_mulai' => Carbon::now()->subMonths(3)->format('Y-m-d'),
+            'tanggal_selesai' => Carbon::now()->addMonths(9)->format('Y-m-d'),
             'status_aktif' => true,
             'rekomendasi_sistem' => 'belum_dievaluasi',
         ]);
-
-        // Penempatan Siti di PT Wahyu
         Penempatan::create([
             'id_karyawan' => $karyawan2->id_karyawan,
             'id_klien' => $klienWahyu->id_klien,
-            'tanggal_mulai' => Carbon::now()->subMonths(11)->format('Y-m-d'), // Sudah jalan 11 bulan (Hampir habis)
-            'tanggal_selesai' => Carbon::now()->addMonths(1)->format('Y-m-d'), // Sisa 1 bulan, cocok untuk tes rekomendasi
+            'tanggal_mulai' => Carbon::now()->subMonths(11)->format('Y-m-d'),
+            'tanggal_selesai' => Carbon::now()->addMonths(1)->format('Y-m-d'),
             'status_aktif' => true,
             'rekomendasi_sistem' => 'belum_dievaluasi',
         ]);
