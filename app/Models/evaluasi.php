@@ -46,7 +46,7 @@ class Evaluasi extends Model
 
     public function detail(): HasMany
     {
-        return $this->hasMany(detail_evaluasi::class, 'id_evaluasi', 'id_evaluasi');
+        return $this->hasMany(DetailEvaluasi::class, 'id_evaluasi', 'id_evaluasi');
     }
 
     public function token(): HasOne

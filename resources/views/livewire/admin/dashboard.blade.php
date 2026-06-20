@@ -92,7 +92,7 @@
                     <div
                         class="p-4 bg-base-200 rounded-xl border border-white/5 shadow-neu-inset flex justify-between items-center group hover:border-accent-blue/30 transition-colors">
                         <div>
-                            <div class="font-bold text-white text-sm">{{ $eval->penempatan->karyawan->nama_karyawan }}
+                            <div class="font-bold text-black text-sm">{{ $eval->penempatan->karyawan->nama_karyawan }}
                             </div>
                             <div class="text-xs text-gray-500 mt-1">{{ $eval->penempatan->klien->nama_perusahaan }} •
                                 <span class="text-accent-purple">{{ $eval->periode }}</span>
@@ -147,7 +147,7 @@
                         @endif
 
                         <div class="pl-2">
-                            <div class="font-bold text-white text-sm">{{ $kontrak->karyawan->nama_karyawan }}</div>
+                            <div class="font-bold text-black text-sm">{{ $kontrak->karyawan->nama_karyawan }}</div>
                             <div class="text-xs text-gray-400 mt-1">{{ $kontrak->klien->nama_perusahaan }}</div>
                         </div>
                         <div class="text-right">

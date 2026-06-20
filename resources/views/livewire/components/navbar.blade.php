@@ -328,13 +328,13 @@
 
             {{-- Search --}}
             <div class="valdo-search">
-                <svg class="valdo-search-icon" width="16" height="16" fill="none" stroke="currentColor"
+                {{-- <svg class="valdo-search-icon" width="16" height="16" fill="none" stroke="currentColor"
                     stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="11" cy="11" r="8" />
                     <path stroke-linecap="round" d="M21 21l-4.35-4.35" />
-                </svg>
-                <input type="search" class="valdo-search-input" placeholder="Cari karyawan, klien, evaluasi…"
-                    x-model="search" aria-label="Pencarian">
+                </svg> --}}
+                {{-- <input type="search" class="valdo-search-input" placeholder="Cari karyawan, klien, evaluasi…"
+                    x-model="search" aria-label="Pencarian"> --}}
             </div>
         @endauth
 

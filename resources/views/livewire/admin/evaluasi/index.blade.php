@@ -78,7 +78,7 @@
                                 <span class="valdo-badge valdo-badge-blue">{{ $eval->periode }}</span>
                             </td>
                             <td>
-                                <div class="font-semibold text-white">{{ $eval->penempatan->karyawan->nama_karyawan }}
+                                <div class="font-semibold text-black">{{ $eval->penempatan->karyawan->nama_karyawan }}
                                 </div>
                             </td>
                             <td>
@@ -153,7 +153,7 @@
             x-transition:leave="valdo-leave" x-transition:leave-start="valdo-leave-start"
             x-transition:leave-end="valdo-leave-end">
             <div class="valdo-modal-header">
-                <h3 class="valdo-heading-md text-white">Buat Magic Link Baru</h3>
+                <h3 class="valdo-heading-md text-black">Buat Magic Link Baru</h3>
                 <button @click="modalOpen = false" class="valdo-modal-close"><svg class="w-5 h-5" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -169,7 +169,7 @@
                         <div
                             class="flex items-center justify-between p-4 bg-base-200 rounded-xl border border-white/5 hover:border-accent-blue/50 transition-colors group">
                             <div>
-                                <h4 class="font-bold text-white text-sm">{{ $p->karyawan->nama_karyawan }}</h4>
+                                <h4 class="font-bold text-black text-sm">{{ $p->karyawan->nama_karyawan }}</h4>
                                 <p class="text-xs text-gray-500 mt-1">Klien: {{ $p->klien->nama_perusahaan }}</p>
                             </div>
                             <button wire:click="generateMagicLink({{ $p->id_penempatan }})"

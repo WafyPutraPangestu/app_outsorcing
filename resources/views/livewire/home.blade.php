@@ -156,7 +156,7 @@
             <div class="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
                 <div id="hero-sub" style="opacity:0;transform:translateY(20px);" class="max-w-lg">
                     <p style="font-size:1.05rem;line-height:1.75;color:rgba(200,204,220,0.75);">
-                        Sistem evaluasi karyawan berbasis <strong style="color:#fff;font-weight:600;">token
+                        Sistem evaluasi karyawan berbasis <strong style="color:#000;font-weight:600;">token
                             unik</strong> —
                         transparan dan terotomasi penuh dari penempatan hingga rekomendasi kontrak. Dirancang eksklusif
                         untuk
@@ -279,7 +279,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p style="font-size:0.78rem;font-weight:700;color:#fff;white-space:nowrap;">Token Terkirim</p>
+                        <p style="font-size:0.78rem;font-weight:700;color:#000;white-space:nowrap;">Token Terkirim</p>
                         <p style="font-size:0.65rem;color:#6b7190;">2 detik yang lalu</p>
                     </div>
                 </div>
@@ -302,7 +302,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p style="font-size:0.78rem;font-weight:700;color:#fff;white-space:nowrap;">Lanjut Kontrak ✓
+                        <p style="font-size:0.78rem;font-weight:700;color:#000;white-space:nowrap;">Lanjut Kontrak ✓
                         </p>
                         <p style="font-size:0.65rem;color:#6b7190;">Rekomendasi Otomatis</p>
                     </div>
@@ -360,7 +360,7 @@
                 <span class="valdo-text-label" style="color:var(--color-accent-purple);letter-spacing:0.18em;">FITUR
                     UNGGULAN</span>
                 <h2
-                    style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;color:#e2e5f0;margin-top:10px;line-height:1.1;">
+                    style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;color:#000;margin-top:10px;line-height:1.1;">
                     Dirancang untuk<br />
                     <span
                         style="background:linear-gradient(135deg,var(--color-accent-blue),var(--color-accent-purple));
@@ -381,11 +381,10 @@
                             LOGIN</span>
                     </div>
                     <h3
-                        style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;margin-bottom:20px;">
+                        style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;color:#000;margin-bottom:20px;">
                         Magic Link<br />Evaluation
                     </h3>
-                    <p
-                        style="color:rgba(200,204,220,0.65);font-size:1rem;line-height:1.8;margin-bottom:24px;max-width:440px;">
+                    <p style="color:#000;font-size:1rem;line-height:1.8;margin-bottom:24px;max-width:440px;">
                         Sistem generate token unik yang dikirim langsung ke HRD klien via email. Klik link, isi form
                         evaluasi, selesai — tanpa perlu buat akun atau login. Token otomatis hangus setelah dipakai.
                     </p>
@@ -478,11 +477,11 @@
                             TERPUSAT</span>
                     </div>
                     <h3
-                        style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;margin-bottom:20px;">
+                        style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;color:#000;margin-bottom:20px;">
                         Dashboard<br />Admin Penuh
                     </h3>
                     <p
-                        style="color:rgba(200,204,220,0.65);font-size:1rem;line-height:1.8;margin-bottom:24px;max-width:440px;">
+                        style="color:#000200,204,220,0.65);font-size:1rem;line-height:1.8;margin-bottom:24px;max-width:440px;">
                         Admin PT Valdo punya kendali penuh — pantau status evaluasi seluruh karyawan, verifikasi nilai
                         yang masuk, dan lacak semua aktivitas melalui log otomatis yang terekam lengkap.
                     </p>
@@ -517,7 +516,7 @@
                                         style="font-size:0.7rem;color:#6b7190;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;">
                                         {{ $l }}</p>
                                     <p
-                                        style="font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:-0.04em;line-height:1;">
+                                        style="font-size:1.6rem;font-weight:900;color:#000;letter-spacing:-0.04em;line-height:1;">
                                         {{ $v }}</p>
                                     <span
                                         style="font-size:0.72rem;font-weight:600;color:{{ $c }};margin-top:4px;display:block;">{{ $t }}</span>
@@ -559,11 +558,11 @@
                             OTOMATIS</span>
                     </div>
                     <h3
-                        style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;margin-bottom:20px;">
+                        style="font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1;color:#000;margin-bottom:20px;">
                         Kalkulasi Nilai<br />& Rekomendasi
                     </h3>
                     <p
-                        style="color:rgba(200,204,220,0.65);font-size:1rem;line-height:1.8;margin-bottom:24px;max-width:440px;">
+                        style="color:#000200,204,220,0.65);font-size:1rem;line-height:1.8;margin-bottom:24px;max-width:440px;">
                         Sistem otomatis menghitung rata-rata tertimbang seluruh evaluasi bulanan yang sudah
                         diverifikasi. Hasilnya langsung menghasilkan rekomendasi "Lanjut" atau "Putus Kontrak" yang bisa
                         diekspor sebagai laporan resmi.
@@ -761,7 +760,7 @@
 
             <h2
                 style="font-size:clamp(2.5rem,9vw,8rem);font-weight:900;letter-spacing:-0.05em;
-                        line-height:0.9;color:#e2e5f0;margin-top:20px;margin-bottom:0;">
+                        line-height:0.9;color:#000;margin-top:20px;margin-bottom:0;">
                 MULAI<br />
                 <span
                     style="background:linear-gradient(100deg,var(--color-accent-blue) 0%,var(--color-accent-cyan) 45%,var(--color-accent-purple) 100%);
@@ -771,7 +770,7 @@
                 </span>
             </h2>
 
-            <p style="color:rgba(200,204,220,0.55);font-size:1rem;line-height:1.7;margin:32px auto 0;max-width:400px;">
+            <p style="color:#000;font-size:1rem;line-height:1.7;margin:32px auto 0;max-width:400px;">
                 Masuk ke dashboard admin dan kelola karyawan, klien, dan evaluasi dalam satu sistem terintegrasi dan
                 aman.
             </p>

@@ -58,7 +58,7 @@
                     @forelse ($penempatans as $penempatan)
                         <tr class="group hover:bg-base-400/30 transition-colors">
                             <td>
-                                <div class="font-bold text-white">{{ $penempatan->karyawan->nama_karyawan }}</div>
+                                <div class="font-bold text-black">{{ $penempatan->karyawan->nama_karyawan }}</div>
                                 <div class="text-xs text-gray-500 font-mono mt-0.5">NIK:
                                     {{ $penempatan->karyawan->nik }}</div>
                             </td>
@@ -88,10 +88,10 @@
                             </td>
                             <td class="text-right">
                                 <div
-                                    class="flex justify-end gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                                    class="flex justify-end gap-2 opacity-100 sm:opacity-100 sm:group-hover:opacity-100 transition-opacity">
                                     <a href="{{ route('admin.penempatan.show', $penempatan->id_penempatan) }}"
                                         wire:navigate
-                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-cyan hover:text-white"
+                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-cyan hover:text-black"
                                         title="Lihat Detail">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -103,7 +103,7 @@
                                     </a>
                                     <a href="{{ route('admin.penempatan.edit', $penempatan->id_penempatan) }}"
                                         wire:navigate
-                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-blue hover:text-white"
+                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-blue hover:text-black"
                                         title="Edit Data">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -113,7 +113,7 @@
                                     </a>
                                     <button wire:click="delete({{ $penempatan->id_penempatan }})"
                                         wire:confirm="Yakin ingin menghapus data penempatan ini?"
-                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-red-400 hover:text-white"
+                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-red-400 hover:text-black"
                                         title="Hapus Data">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -10,7 +10,7 @@
 @source '../**/*.js';
 
 /* ============================================================
-   VALDO — NEUMORPHIC 2.0 | Futuristic Soft Theme
+   VALDO — NEUMORPHIC 2.0 | Futuristic Light Theme
    Stack: Laravel · Livewire · Tailwind CSS · Alpine.js
    ============================================================ */
 
@@ -24,55 +24,57 @@
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: "Space Mono", ui-monospace, monospace;
 
-    /* ── Core Palette ── */
-    --color-base-50: #0d0f1a; /* Darkest background */
-    --color-base-100: #11131f; /* Main background */
-    --color-base-200: #161824; /* Sidebar background */
-    --color-base-300: #1c1f30; /* Card surface */
-    --color-base-400: #22263a; /* Elevated surface */
-    --color-base-500: #2a2f47; /* Border / divider */
-    --color-base-600: #353a56; /* Hover surface */
+    /* ── Core Palette — LIGHT REMAP ── */
+    --color-base-50: #f0f4ff; /* Lightest background */
+    --color-base-100: #f5f7ff; /* Main background */
+    --color-base-200: #ffffff; /* Sidebar / card surface */
+    --color-base-300: #eef1f8; /* Card surface */
+    --color-base-400: #e4e8f4; /* Elevated surface */
+    --color-base-500: #d0d6ea; /* Border / divider */
+    --color-base-600: #bcc4de; /* Hover surface */
 
-    /* ── Accent Palette ── */
+    /* ── Accent Palette — tetap sama ── */
     --color-accent-blue: #4f8ef7;
     --color-accent-purple: #8b5cf6;
-    --color-accent-cyan: #22d3ee;
-    --color-accent-pink: #e879f9;
+    --color-accent-cyan: #0891b2; /* digelapkan sedikit agar kontras di light */
+    --color-accent-pink: #c026d3; /* digelapkan sedikit */
     --color-accent-indigo: #6366f1;
 
     /* ── Gradient Stops ── */
-    --gradient-start: #1a1d35;
-    --gradient-end: #0f1228;
+    --gradient-start: #eef1fb;
+    --gradient-end: #f5f7ff;
 
     /* ── Glow Colors ── */
-    --glow-blue: rgba(79, 142, 247, 0.35);
-    --glow-purple: rgba(139, 92, 246, 0.35);
-    --glow-cyan: rgba(34, 211, 238, 0.2);
+    --glow-blue: rgba(79, 142, 247, 0.2);
+    --glow-purple: rgba(139, 92, 246, 0.2);
+    --glow-cyan: rgba(8, 145, 178, 0.15);
 
-    /* ── Neumorphic Shadows ── */
-    /* Light source: top-left */
+    /* ── Neumorphic Shadows — LIGHT VERSION ──
+       Light source: top-left
+       Terang = highlight putih lebih kuat, shadow lebih soft */
     --neu-shadow-sm:
-        3px 3px 6px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.025);
+        3px 3px 6px rgba(163, 177, 198, 0.5),
+        -2px -2px 5px rgba(255, 255, 255, 0.9);
 
     --neu-shadow-md:
-        6px 6px 12px rgba(0, 0, 0, 0.55),
-        -4px -4px 8px rgba(255, 255, 255, 0.03);
+        6px 6px 12px rgba(163, 177, 198, 0.55),
+        -4px -4px 8px rgba(255, 255, 255, 0.95);
 
     --neu-shadow-lg:
-        10px 10px 20px rgba(0, 0, 0, 0.6),
-        -6px -6px 14px rgba(255, 255, 255, 0.04);
+        10px 10px 20px rgba(163, 177, 198, 0.6),
+        -6px -6px 14px rgba(255, 255, 255, 1);
 
     --neu-shadow-xl:
-        14px 14px 28px rgba(0, 0, 0, 0.65),
-        -8px -8px 18px rgba(255, 255, 255, 0.05);
+        14px 14px 28px rgba(163, 177, 198, 0.65),
+        -8px -8px 18px rgba(255, 255, 255, 1);
 
     --neu-inset:
-        inset 3px 3px 7px rgba(0, 0, 0, 0.6),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.03);
+        inset 3px 3px 7px rgba(163, 177, 198, 0.45),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.9);
 
     --neu-inset-active:
-        inset 5px 5px 12px rgba(0, 0, 0, 0.7),
-        inset -1px -1px 3px rgba(255, 255, 255, 0.02);
+        inset 5px 5px 12px rgba(163, 177, 198, 0.55),
+        inset -1px -1px 3px rgba(255, 255, 255, 0.8);
 
     /* ── Border Radius ── */
     --radius-card: 16px;
@@ -108,22 +110,23 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
 }
 
 body {
     font-family: var(--font-sans);
     background-color: var(--color-base-100);
-    color: #e2e5f0;
+    color: #1e2340;
     min-height: 100vh;
     background-image:
         radial-gradient(
             ellipse 80% 50% at 20% 10%,
-            rgba(79, 142, 247, 0.06) 0%,
+            rgba(79, 142, 247, 0.04) 0%,
             transparent 60%
         ),
         radial-gradient(
             ellipse 60% 40% at 80% 80%,
-            rgba(139, 92, 246, 0.06) 0%,
+            rgba(139, 92, 246, 0.04) 0%,
             transparent 60%
         );
     background-attachment: fixed;
@@ -145,10 +148,9 @@ body {
     background: var(--color-accent-blue);
 }
 
-/* Selection */
 ::selection {
-    background: rgba(79, 142, 247, 0.3);
-    color: #fff;
+    background: rgba(79, 142, 247, 0.2);
+    color: #1e2340;
 }
 
 /* ============================================================
@@ -161,7 +163,7 @@ body {
     line-height: 1.1;
     background: linear-gradient(
         135deg,
-        #e2e5f0 30%,
+        #1e2340 30%,
         var(--color-accent-blue) 70%,
         var(--color-accent-purple) 100%
     );
@@ -174,22 +176,22 @@ body {
     font-size: clamp(1.5rem, 2.5vw, 2.25rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: #e2e5f0;
+    color: #1e2340;
 }
 
 .valdo-heading-md {
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    color: #c8ccdc;
+    color: #2d3561;
 }
 
 .valdo-text-muted {
-    color: #6b7190;
+    color: #7480a0;
     font-size: 0.875rem;
 }
 .valdo-text-label {
-    color: #8892b0;
+    color: #5a6480;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -202,10 +204,8 @@ body {
 }
 
 /* ============================================================
-   LAYOUT — HYBRID (Sidebar + Topbar)
+   LAYOUT — SIDEBAR
    ============================================================ */
-
-/* === SIDEBAR === */
 .valdo-sidebar {
     position: fixed;
     top: 0;
@@ -213,10 +213,10 @@ body {
     height: 100vh;
     width: 260px;
     background: var(--color-base-200);
-    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    border-right: 1px solid var(--color-base-500);
     box-shadow:
-        4px 0 24px rgba(0, 0, 0, 0.4),
-        inset -1px 0 0 rgba(255, 255, 255, 0.03);
+        4px 0 24px rgba(163, 177, 198, 0.3),
+        inset -1px 0 0 rgba(255, 255, 255, 0.8);
     display: flex;
     flex-direction: column;
     z-index: var(--z-sidebar);
@@ -230,13 +230,12 @@ body {
     width: 72px;
 }
 
-/* Sidebar Logo Area */
 .valdo-sidebar-logo {
     padding: 28px 20px 24px;
     display: flex;
     align-items: center;
     gap: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--color-base-500);
     flex-shrink: 0;
 }
 
@@ -263,20 +262,18 @@ body {
 .valdo-sidebar-logo-text {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #e2e5f0;
+    color: #1e2340;
     letter-spacing: -0.02em;
     white-space: nowrap;
     overflow: hidden;
     opacity: 1;
     transition: opacity var(--transition-normal);
 }
-
 .valdo-sidebar.collapsed .valdo-sidebar-logo-text {
     opacity: 0;
     width: 0;
 }
 
-/* Sidebar Navigation */
 .valdo-sidebar-nav {
     flex: 1;
     padding: 16px 12px;
@@ -289,18 +286,16 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #3d4263;
+    color: #a0aabf;
     padding: 12px 8px 6px;
     white-space: nowrap;
     overflow: hidden;
     transition: opacity var(--transition-normal);
 }
-
 .valdo-sidebar.collapsed .valdo-sidebar-section-label {
     opacity: 0;
 }
 
-/* Nav Item */
 .valdo-nav-item {
     display: flex;
     align-items: center;
@@ -309,7 +304,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: all var(--transition-fast);
-    color: #6b7190;
+    color: #7480a0;
     text-decoration: none;
     margin-bottom: 2px;
     position: relative;
@@ -319,15 +314,15 @@ body {
 
 .valdo-nav-item:hover {
     background: var(--color-base-400);
-    color: #c8ccdc;
+    color: #2d3561;
     box-shadow: var(--neu-shadow-sm);
 }
 
 .valdo-nav-item.active {
     background: linear-gradient(
         135deg,
-        rgba(79, 142, 247, 0.18) 0%,
-        rgba(139, 92, 246, 0.12) 100%
+        rgba(79, 142, 247, 0.12) 0%,
+        rgba(139, 92, 246, 0.08) 100%
     );
     color: var(--color-accent-blue);
     box-shadow:
@@ -335,7 +330,6 @@ body {
         inset 0 0 0 1px rgba(79, 142, 247, 0.2);
 }
 
-/* Active indicator bar */
 .valdo-nav-item.active::before {
     content: "";
     position: absolute;
@@ -361,23 +355,20 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .valdo-nav-item-label {
     font-size: 0.875rem;
     font-weight: 500;
     transition: opacity var(--transition-normal);
     overflow: hidden;
 }
-
 .valdo-sidebar.collapsed .valdo-nav-item-label {
     opacity: 0;
     width: 0;
 }
 
-/* Sidebar Footer */
 .valdo-sidebar-footer {
     padding: 16px 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid var(--color-base-500);
     flex-shrink: 0;
 }
 
@@ -390,7 +381,6 @@ body {
     cursor: pointer;
     transition: background var(--transition-fast);
 }
-
 .valdo-sidebar-user:hover {
     background: var(--color-base-400);
 }
@@ -423,18 +413,20 @@ body {
     width: 0;
 }
 
-/* === TOPBAR === */
+/* ============================================================
+   TOPBAR
+   ============================================================ */
 .valdo-topbar {
     position: fixed;
     top: 0;
     left: 260px;
     right: 0;
     height: 64px;
-    background: rgba(17, 19, 31, 0.85);
+    background: rgba(245, 247, 255, 0.9);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid var(--color-base-500);
+    box-shadow: 0 1px 20px rgba(163, 177, 198, 0.3);
     display: flex;
     align-items: center;
     padding: 0 24px;
@@ -448,7 +440,6 @@ body {
     left: 72px;
 }
 
-/* Search Bar */
 .valdo-search {
     flex: 1;
     max-width: 400px;
@@ -459,27 +450,25 @@ body {
     width: 100%;
     height: 38px;
     background: var(--color-base-300);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--color-base-500);
     border-radius: 10px;
     padding: 0 14px 0 38px;
-    color: #c8ccdc;
+    color: #1e2340;
     font-family: var(--font-sans);
     font-size: 0.875rem;
     outline: none;
     box-shadow: var(--neu-inset);
     transition: all var(--transition-fast);
 }
-
 .valdo-search-input::placeholder {
-    color: #3d4263;
+    color: #a0aabf;
 }
-
 .valdo-search-input:focus {
-    border-color: rgba(79, 142, 247, 0.35);
+    border-color: rgba(79, 142, 247, 0.4);
     box-shadow:
         var(--neu-inset),
         0 0 0 3px rgba(79, 142, 247, 0.1);
-    background: var(--color-base-400);
+    background: var(--color-base-200);
 }
 
 .valdo-search-icon {
@@ -487,11 +476,10 @@ body {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #3d4263;
+    color: #a0aabf;
     pointer-events: none;
 }
 
-/* Topbar Actions */
 .valdo-topbar-actions {
     display: flex;
     align-items: center;
@@ -499,35 +487,31 @@ body {
     margin-left: auto;
 }
 
-/* Icon Button (topbar) */
 .valdo-icon-btn {
     width: 38px;
     height: 38px;
     border-radius: 10px;
     background: var(--color-base-300);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-shadow-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6b7190;
+    color: #7480a0;
     cursor: pointer;
     transition: all var(--transition-fast);
     position: relative;
 }
-
 .valdo-icon-btn:hover {
     background: var(--color-base-400);
-    color: #c8ccdc;
+    color: #2d3561;
     box-shadow: var(--neu-shadow-md);
 }
-
 .valdo-icon-btn:active {
     box-shadow: var(--neu-inset-active);
     background: var(--color-base-300);
 }
 
-/* Notification badge */
 .valdo-badge-dot {
     position: absolute;
     top: 6px;
@@ -541,7 +525,9 @@ body {
     animation: valdo-pulse 2s infinite;
 }
 
-/* === MAIN CONTENT AREA === */
+/* ============================================================
+   MAIN CONTENT AREA
+   ============================================================ */
 .valdo-main {
     margin-left: 260px;
     margin-top: 64px;
@@ -549,19 +535,18 @@ body {
     min-height: calc(100vh - 64px);
     transition: margin-left var(--transition-normal);
 }
-
 .valdo-sidebar.collapsed ~ .valdo-main,
 .valdo-main.sidebar-collapsed {
     margin-left: 72px;
 }
 
 /* ============================================================
-   CARDS — Neumorphic Floating Surface
+   CARDS
    ============================================================ */
 .valdo-card {
-    background: var(--color-base-300);
+    background: var(--color-base-200);
     border-radius: var(--radius-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-shadow-lg);
     padding: 24px;
     position: relative;
@@ -570,8 +555,6 @@ body {
         box-shadow var(--transition-normal),
         transform var(--transition-normal);
 }
-
-/* Subtle top highlight */
 .valdo-card::before {
     content: "";
     position: absolute;
@@ -582,52 +565,44 @@ body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.08) 30%,
-        rgba(255, 255, 255, 0.08) 70%,
+        rgba(255, 255, 255, 0.9) 30%,
+        rgba(255, 255, 255, 0.9) 70%,
         transparent
     );
 }
-
 .valdo-card:hover {
     box-shadow: var(--neu-shadow-xl);
     transform: translateY(-2px);
 }
 
-/* Elevated variant */
 .valdo-card-elevated {
-    background: var(--color-base-400);
-    box-shadow:
-        var(--neu-shadow-xl),
-        0 0 30px rgba(0, 0, 0, 0.2);
+    background: var(--color-base-300);
+    box-shadow: var(--neu-shadow-xl);
 }
 
-/* Glow variant */
 .valdo-card-glow-blue {
     box-shadow:
         var(--neu-shadow-lg),
-        0 0 40px rgba(79, 142, 247, 0.1);
-    border-color: rgba(79, 142, 247, 0.15);
+        0 0 40px rgba(79, 142, 247, 0.08);
+    border-color: rgba(79, 142, 247, 0.2);
 }
-
 .valdo-card-glow-purple {
     box-shadow:
         var(--neu-shadow-lg),
-        0 0 40px rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.15);
+        0 0 40px rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.2);
 }
 
-/* Stat Card */
 .valdo-stat-card {
-    background: var(--color-base-300);
+    background: var(--color-base-200);
     border-radius: var(--radius-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-shadow-lg);
     padding: 20px 24px;
     position: relative;
     overflow: hidden;
     transition: all var(--transition-normal);
 }
-
 .valdo-stat-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--neu-shadow-xl);
@@ -643,67 +618,62 @@ body {
     margin-bottom: 16px;
     box-shadow: var(--neu-shadow-md);
 }
-
 .valdo-stat-card-icon.blue {
     background: linear-gradient(
         135deg,
-        rgba(79, 142, 247, 0.2),
-        rgba(79, 142, 247, 0.08)
+        rgba(79, 142, 247, 0.15),
+        rgba(79, 142, 247, 0.05)
     );
     color: var(--color-accent-blue);
     box-shadow:
         var(--neu-shadow-md),
-        0 0 16px rgba(79, 142, 247, 0.15);
+        0 0 16px rgba(79, 142, 247, 0.12);
 }
-
 .valdo-stat-card-icon.purple {
     background: linear-gradient(
         135deg,
-        rgba(139, 92, 246, 0.2),
-        rgba(139, 92, 246, 0.08)
+        rgba(139, 92, 246, 0.15),
+        rgba(139, 92, 246, 0.05)
     );
     color: var(--color-accent-purple);
     box-shadow:
         var(--neu-shadow-md),
-        0 0 16px rgba(139, 92, 246, 0.15);
+        0 0 16px rgba(139, 92, 246, 0.12);
 }
-
 .valdo-stat-card-icon.cyan {
     background: linear-gradient(
         135deg,
-        rgba(34, 211, 238, 0.2),
-        rgba(34, 211, 238, 0.08)
+        rgba(8, 145, 178, 0.15),
+        rgba(8, 145, 178, 0.05)
     );
     color: var(--color-accent-cyan);
     box-shadow:
         var(--neu-shadow-md),
-        0 0 16px rgba(34, 211, 238, 0.15);
+        0 0 16px rgba(8, 145, 178, 0.12);
 }
-
 .valdo-stat-card-icon.pink {
     background: linear-gradient(
         135deg,
-        rgba(232, 121, 249, 0.2),
-        rgba(232, 121, 249, 0.08)
+        rgba(192, 38, 211, 0.15),
+        rgba(192, 38, 211, 0.05)
     );
     color: var(--color-accent-pink);
     box-shadow:
         var(--neu-shadow-md),
-        0 0 16px rgba(232, 121, 249, 0.15);
+        0 0 16px rgba(192, 38, 211, 0.12);
 }
 
 .valdo-stat-value {
     font-size: 1.875rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    color: #e2e5f0;
+    color: #1e2340;
     line-height: 1;
     margin-bottom: 4px;
 }
-
 .valdo-stat-label {
     font-size: 0.8125rem;
-    color: #6b7190;
+    color: #7480a0;
     font-weight: 500;
 }
 
@@ -717,34 +687,31 @@ body {
     padding: 3px 8px;
     border-radius: 6px;
 }
-
 .valdo-stat-trend.up {
-    background: rgba(34, 211, 238, 0.12);
+    background: rgba(8, 145, 178, 0.1);
     color: var(--color-accent-cyan);
 }
-
 .valdo-stat-trend.down {
-    background: rgba(232, 121, 249, 0.12);
+    background: rgba(192, 38, 211, 0.1);
     color: var(--color-accent-pink);
 }
 
-/* Card header */
 .valdo-card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
     padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--color-base-500);
 }
 
 /* ============================================================
-   TABLE — Gradient Row with Floating Active
+   TABLE
    ============================================================ */
 .valdo-table-wrapper {
-    background: var(--color-base-300);
+    background: var(--color-base-200);
     border-radius: var(--radius-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-shadow-lg);
     overflow: hidden;
 }
@@ -754,11 +721,9 @@ body {
     border-collapse: collapse;
 }
 
-/* Table Head */
 .valdo-table thead tr {
-    background: var(--color-base-200);
+    background: var(--color-base-300);
 }
-
 .valdo-table thead th {
     padding: 14px 20px;
     text-align: left;
@@ -766,18 +731,16 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #3d4263;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #a0aabf;
+    border-bottom: 1px solid var(--color-base-500);
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
     transition: color var(--transition-fast);
 }
-
 .valdo-table thead th:hover {
-    color: #6b7190;
+    color: #5a6480;
 }
-
 .valdo-table thead th.sort-asc::after {
     content: " ↑";
     color: var(--color-accent-blue);
@@ -787,61 +750,41 @@ body {
     color: var(--color-accent-blue);
 }
 
-/* Table Body */
 .valdo-table tbody tr {
-    /* Left-to-right gradient on each row */
-    background: linear-gradient(
-        90deg,
-        var(--color-base-300) 0%,
-        rgba(34, 38, 58, 0.6) 50%,
-        var(--color-base-300) 100%
-    );
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    background: var(--color-base-200);
+    border-bottom: 1px solid var(--color-base-500);
     transition: all var(--transition-fast);
     position: relative;
 }
-
 .valdo-table tbody tr:last-child {
     border-bottom: none;
 }
-
 .valdo-table tbody tr:hover {
-    background: linear-gradient(
-        90deg,
-        rgba(79, 142, 247, 0.07) 0%,
-        rgba(139, 92, 246, 0.05) 50%,
-        rgba(79, 142, 247, 0.07) 100%
-    );
+    background: var(--color-base-300);
     cursor: pointer;
 }
-
-/* Active row — "floats" above others */
 .valdo-table tbody tr.active {
     background: linear-gradient(
         90deg,
-        rgba(79, 142, 247, 0.12) 0%,
-        rgba(139, 92, 246, 0.1) 50%,
-        rgba(79, 142, 247, 0.12) 100%
+        rgba(79, 142, 247, 0.06) 0%,
+        rgba(139, 92, 246, 0.04) 50%,
+        rgba(79, 142, 247, 0.06) 100%
     );
     box-shadow:
-        0 4px 16px rgba(0, 0, 0, 0.5),
-        0 -1px 0 rgba(79, 142, 247, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 2px 8px rgba(163, 177, 198, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     z-index: 1;
 }
-
 .valdo-table tbody tr.active td:first-child {
     border-left: 2px solid var(--color-accent-blue);
 }
-
 .valdo-table tbody td {
     padding: 14px 20px;
     font-size: 0.875rem;
-    color: #a8adc4;
+    color: #5a6480;
     vertical-align: middle;
 }
 
-/* Row cell content helpers */
 .valdo-table-avatar {
     width: 32px;
     height: 32px;
@@ -861,10 +804,8 @@ body {
 }
 
 /* ============================================================
-   BUTTONS — Neumorphic with Inner Shadow Press
+   BUTTONS
    ============================================================ */
-
-/* Base button */
 .valdo-btn {
     display: inline-flex;
     align-items: center;
@@ -886,8 +827,6 @@ body {
     user-select: none;
     letter-spacing: -0.01em;
 }
-
-/* Ripple effect base */
 .valdo-btn::after {
     content: "";
     position: absolute;
@@ -897,7 +836,7 @@ body {
     left: 0;
     background: radial-gradient(
         circle,
-        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.25) 0%,
         transparent 70%
     );
     opacity: 0;
@@ -906,14 +845,12 @@ body {
         transform 0.4s ease,
         opacity 0.4s ease;
 }
-
 .valdo-btn:active::after {
     transform: scale(2.5);
     opacity: 1;
     transition: 0s;
 }
 
-/* Primary */
 .valdo-btn-primary {
     background: linear-gradient(
         135deg,
@@ -925,45 +862,38 @@ body {
         var(--neu-shadow-md),
         0 0 20px var(--glow-blue);
 }
-
 .valdo-btn-primary:hover {
     box-shadow:
         var(--neu-shadow-lg),
-        0 0 30px rgba(79, 142, 247, 0.5);
+        0 0 30px rgba(79, 142, 247, 0.35);
     transform: translateY(-1px);
 }
-
-/* ← KEY MECHANIC: actual press-into-surface feel */
 .valdo-btn-primary:active {
     box-shadow:
         var(--neu-inset-active),
-        0 0 10px rgba(79, 142, 247, 0.2);
+        0 0 10px rgba(79, 142, 247, 0.15);
     transform: translateY(1px);
     background: linear-gradient(135deg, #3d7ae5 0%, #5254d0 100%);
 }
 
-/* Secondary */
 .valdo-btn-secondary {
-    background: var(--color-base-400);
-    color: #c8ccdc;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--color-base-300);
+    color: #5a6480;
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-shadow-md);
 }
-
 .valdo-btn-secondary:hover {
-    background: var(--color-base-500);
-    color: #e2e5f0;
+    background: var(--color-base-400);
+    color: #1e2340;
     box-shadow: var(--neu-shadow-lg);
     transform: translateY(-1px);
 }
-
 .valdo-btn-secondary:active {
     box-shadow: var(--neu-inset-active);
     transform: translateY(1px);
-    background: var(--color-base-300);
+    background: var(--color-base-200);
 }
 
-/* Purple accent */
 .valdo-btn-purple {
     background: linear-gradient(
         135deg,
@@ -975,62 +905,51 @@ body {
         var(--neu-shadow-md),
         0 0 20px var(--glow-purple);
 }
-
 .valdo-btn-purple:hover {
     box-shadow:
         var(--neu-shadow-lg),
-        0 0 30px rgba(139, 92, 246, 0.5);
+        0 0 30px rgba(139, 92, 246, 0.35);
     transform: translateY(-1px);
 }
-
 .valdo-btn-purple:active {
-    box-shadow:
-        var(--neu-inset-active),
-        0 0 10px rgba(139, 92, 246, 0.2);
+    box-shadow: var(--neu-inset-active);
     transform: translateY(1px);
 }
 
-/* Ghost */
 .valdo-btn-ghost {
     background: transparent;
-    color: #6b7190;
+    color: #7480a0;
     box-shadow: none;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--color-base-500);
 }
-
 .valdo-btn-ghost:hover {
     background: var(--color-base-300);
-    color: #c8ccdc;
+    color: #2d3561;
     box-shadow: var(--neu-shadow-sm);
 }
-
 .valdo-btn-ghost:active {
     box-shadow: var(--neu-inset);
     background: var(--color-base-200);
 }
 
-/* Danger */
 .valdo-btn-danger {
     background: linear-gradient(135deg, #ef4444, #dc2626);
     color: #fff;
     box-shadow:
         var(--neu-shadow-md),
-        0 0 20px rgba(239, 68, 68, 0.3);
+        0 0 20px rgba(239, 68, 68, 0.2);
 }
-
 .valdo-btn-danger:hover {
     box-shadow:
         var(--neu-shadow-lg),
-        0 0 30px rgba(239, 68, 68, 0.4);
+        0 0 30px rgba(239, 68, 68, 0.3);
     transform: translateY(-1px);
 }
-
 .valdo-btn-danger:active {
     box-shadow: var(--neu-inset-active);
     transform: translateY(1px);
 }
 
-/* Sizes */
 .valdo-btn-sm {
     padding: 7px 14px;
     font-size: 0.8rem;
@@ -1051,17 +970,15 @@ body {
     aspect-ratio: 1;
 }
 
-/* Loading state */
 .valdo-btn.loading {
     pointer-events: none;
     opacity: 0.7;
 }
-
 .valdo-btn.loading::before {
     content: "";
     width: 14px;
     height: 14px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-top-color: #fff;
     border-radius: 50%;
     animation: valdo-spin 0.7s linear infinite;
@@ -1069,7 +986,7 @@ body {
 }
 
 /* ============================================================
-   FORMS — Inputs, Selects, Textareas
+   FORMS
    ============================================================ */
 .valdo-input-group {
     display: flex;
@@ -1077,11 +994,10 @@ body {
     gap: 6px;
     margin-bottom: 16px;
 }
-
 .valdo-label {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #8892b0;
+    color: #5a6480;
     letter-spacing: 0.04em;
 }
 
@@ -1089,11 +1005,11 @@ body {
 .valdo-select,
 .valdo-textarea {
     width: 100%;
-    background: var(--color-base-200);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--color-base-300);
+    border: 1px solid var(--color-base-500);
     border-radius: var(--radius-input);
     padding: 10px 14px;
-    color: #c8ccdc;
+    color: #1e2340;
     font-family: var(--font-sans);
     font-size: 0.875rem;
     outline: none;
@@ -1101,31 +1017,27 @@ body {
     transition: all var(--transition-fast);
     appearance: none;
 }
-
 .valdo-input::placeholder,
 .valdo-textarea::placeholder {
-    color: #2e3350;
+    color: #b0bad0;
 }
-
 .valdo-input:focus,
 .valdo-select:focus,
 .valdo-textarea:focus {
     border-color: rgba(79, 142, 247, 0.4);
-    background: var(--color-base-300);
+    background: var(--color-base-200);
     box-shadow:
         var(--neu-inset),
-        0 0 0 3px rgba(79, 142, 247, 0.12),
-        0 0 16px rgba(79, 142, 247, 0.08);
-    color: #e2e5f0;
+        0 0 0 3px rgba(79, 142, 247, 0.1),
+        0 0 16px rgba(79, 142, 247, 0.06);
+    color: #1e2340;
 }
-
 .valdo-input.error {
     border-color: rgba(239, 68, 68, 0.4);
     box-shadow:
         var(--neu-inset),
-        0 0 0 3px rgba(239, 68, 68, 0.1);
+        0 0 0 3px rgba(239, 68, 68, 0.08);
 }
-
 .valdo-input-error {
     font-size: 0.75rem;
     color: #ef4444;
@@ -1133,11 +1045,10 @@ body {
 }
 .valdo-input-hint {
     font-size: 0.75rem;
-    color: #3d4263;
+    color: #a0aabf;
     margin-top: 4px;
 }
 
-/* Input with prefix icon */
 .valdo-input-wrapper {
     position: relative;
 }
@@ -1149,13 +1060,12 @@ body {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #3d4263;
+    color: #a0aabf;
     pointer-events: none;
     display: flex;
     align-items: center;
 }
 
-/* Select arrow */
 .valdo-select-wrapper {
     position: relative;
 }
@@ -1169,7 +1079,7 @@ body {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 5px solid #3d4263;
+    border-top: 5px solid #a0aabf;
     pointer-events: none;
 }
 
@@ -1179,32 +1089,29 @@ body {
     line-height: 1.6;
 }
 
-/* Toggle / Switch */
+/* Toggle */
 .valdo-toggle {
     position: relative;
     width: 44px;
     height: 24px;
     flex-shrink: 0;
 }
-
 .valdo-toggle input {
     opacity: 0;
     width: 0;
     height: 0;
     position: absolute;
 }
-
 .valdo-toggle-track {
     position: absolute;
     inset: 0;
-    background: var(--color-base-200);
+    background: var(--color-base-400);
     border-radius: 99px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-inset);
     cursor: pointer;
     transition: background var(--transition-normal);
 }
-
 .valdo-toggle-track::after {
     content: "";
     position: absolute;
@@ -1212,12 +1119,11 @@ body {
     left: 3px;
     width: 16px;
     height: 16px;
-    background: #4a5070;
+    background: #c0c8d8;
     border-radius: 50%;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(163, 177, 198, 0.6);
     transition: all var(--transition-spring);
 }
-
 .valdo-toggle input:checked + .valdo-toggle-track {
     background: linear-gradient(
         135deg,
@@ -1227,13 +1133,12 @@ body {
     border-color: rgba(79, 142, 247, 0.3);
     box-shadow:
         var(--neu-inset),
-        0 0 10px rgba(79, 142, 247, 0.2);
+        0 0 10px rgba(79, 142, 247, 0.15);
 }
-
 .valdo-toggle input:checked + .valdo-toggle-track::after {
     left: calc(100% - 19px);
     background: #fff;
-    box-shadow: 0 0 8px rgba(79, 142, 247, 0.5);
+    box-shadow: 0 0 8px rgba(79, 142, 247, 0.4);
 }
 
 /* Checkbox */
@@ -1243,12 +1148,11 @@ body {
     gap: 10px;
     cursor: pointer;
 }
-
 .valdo-checkbox {
     width: 18px;
     height: 18px;
-    background: var(--color-base-200);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--color-base-300);
+    border: 1px solid var(--color-base-500);
     border-radius: 5px;
     box-shadow: var(--neu-inset);
     display: flex;
@@ -1258,7 +1162,6 @@ body {
     transition: all var(--transition-fast);
     cursor: pointer;
 }
-
 .valdo-checkbox.checked {
     background: linear-gradient(
         135deg,
@@ -1268,7 +1171,7 @@ body {
     border-color: var(--color-accent-blue);
     box-shadow:
         var(--neu-shadow-sm),
-        0 0 8px rgba(79, 142, 247, 0.3);
+        0 0 8px rgba(79, 142, 247, 0.25);
 }
 
 /* ============================================================
@@ -1286,52 +1189,49 @@ body {
     text-transform: uppercase;
     white-space: nowrap;
 }
-
 .valdo-badge-blue {
-    background: rgba(79, 142, 247, 0.15);
-    color: var(--color-accent-blue);
+    background: rgba(79, 142, 247, 0.1);
+    color: #3b7de8;
     border: 1px solid rgba(79, 142, 247, 0.2);
 }
 .valdo-badge-purple {
-    background: rgba(139, 92, 246, 0.15);
-    color: var(--color-accent-purple);
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
     border: 1px solid rgba(139, 92, 246, 0.2);
 }
 .valdo-badge-cyan {
-    background: rgba(34, 211, 238, 0.15);
-    color: var(--color-accent-cyan);
-    border: 1px solid rgba(34, 211, 238, 0.2);
+    background: rgba(8, 145, 178, 0.1);
+    color: #0891b2;
+    border: 1px solid rgba(8, 145, 178, 0.2);
 }
 .valdo-badge-pink {
-    background: rgba(232, 121, 249, 0.15);
-    color: var(--color-accent-pink);
-    border: 1px solid rgba(232, 121, 249, 0.2);
+    background: rgba(192, 38, 211, 0.1);
+    color: #c026d3;
+    border: 1px solid rgba(192, 38, 211, 0.2);
 }
 .valdo-badge-green {
-    background: rgba(52, 211, 153, 0.15);
-    color: #34d399;
-    border: 1px solid rgba(52, 211, 153, 0.2);
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 .valdo-badge-red {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
     border: 1px solid rgba(239, 68, 68, 0.2);
 }
 .valdo-badge-muted {
-    background: rgba(107, 113, 144, 0.15);
-    color: #6b7190;
-    border: 1px solid rgba(107, 113, 144, 0.2);
+    background: rgba(116, 128, 160, 0.1);
+    color: #7480a0;
+    border: 1px solid rgba(116, 128, 160, 0.2);
 }
 
-/* Status dot */
 .valdo-status {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-size: 0.8125rem;
-    color: #6b7190;
+    color: #7480a0;
 }
-
 .valdo-status::before {
     content: "";
     width: 7px;
@@ -1339,32 +1239,31 @@ body {
     border-radius: 50%;
     flex-shrink: 0;
 }
-
 .valdo-status.online::before {
-    background: #34d399;
-    box-shadow: 0 0 6px rgba(52, 211, 153, 0.5);
+    background: #10b981;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
     animation: valdo-pulse 2s infinite;
 }
 .valdo-status.offline::before {
-    background: #4a5070;
+    background: #c0c8d8;
 }
 .valdo-status.busy::before {
     background: #f59e0b;
-    box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.4);
 }
 .valdo-status.error::before {
     background: #ef4444;
-    box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
     animation: valdo-pulse 1.5s infinite;
 }
 
 /* ============================================================
-   MODAL — Expanding from Button
+   MODAL
    ============================================================ */
 .valdo-modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(7, 8, 18, 0.75);
+    background: rgba(30, 35, 64, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: var(--z-modal);
@@ -1372,32 +1271,26 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-
-    /* Alpine.js: x-show with these transitions */
     opacity: 0;
     transition: opacity var(--transition-normal);
 }
-
 .valdo-modal-backdrop.open {
     opacity: 1;
 }
 
-/* Modal panel */
 .valdo-modal {
-    background: var(--color-base-300);
+    background: var(--color-base-200);
     border-radius: var(--radius-modal);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--color-base-500);
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.7),
-        0 0 60px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 30px 60px rgba(163, 177, 198, 0.5),
+        0 0 60px rgba(163, 177, 198, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     width: 100%;
     max-width: 540px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-
-    /* Expanding from button: starts very small */
     transform: scale(0.05);
     opacity: 0;
     transition:
@@ -1406,7 +1299,6 @@ body {
     transform-origin: var(--modal-origin-x, center)
         var(--modal-origin-y, center);
 }
-
 .valdo-modal-backdrop.open .valdo-modal {
     transform: scale(1);
     opacity: 1;
@@ -1414,18 +1306,16 @@ body {
 
 .valdo-modal-header {
     padding: 24px 24px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--color-base-500);
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    background: var(--color-base-300);
-    backdrop-filter: blur(10px);
+    background: var(--color-base-200);
     border-radius: var(--radius-modal) var(--radius-modal) 0 0;
     z-index: 1;
 }
-
 .valdo-modal-body {
     padding: 24px;
 }
@@ -1434,35 +1324,32 @@ body {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid var(--color-base-500);
 }
 
 .valdo-modal-close {
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: var(--color-base-400);
+    background: var(--color-base-300);
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6b7190;
+    color: #7480a0;
     transition: all var(--transition-fast);
     box-shadow: var(--neu-shadow-sm);
 }
-
 .valdo-modal-close:hover {
-    background: var(--color-base-500);
-    color: #c8ccdc;
+    background: var(--color-base-400);
+    color: #1e2340;
     box-shadow: var(--neu-shadow-md);
 }
-
 .valdo-modal-close:active {
     box-shadow: var(--neu-inset);
 }
 
-/* Drawer variant */
 .valdo-drawer {
     position: fixed;
     top: 0;
@@ -1470,25 +1357,24 @@ body {
     height: 100vh;
     width: 420px;
     background: var(--color-base-200);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+    border-left: 1px solid var(--color-base-500);
+    box-shadow: -20px 0 60px rgba(163, 177, 198, 0.4);
     z-index: var(--z-modal);
     overflow-y: auto;
     transform: translateX(100%);
     transition: transform var(--transition-slow);
 }
-
 .valdo-drawer.open {
     transform: translateX(0);
 }
 
 /* ============================================================
-   LOADING — Valdo 3D Logo Spinner
+   LOADING
    ============================================================ */
 .valdo-loader-overlay {
     position: fixed;
     inset: 0;
-    background: var(--color-base-50);
+    background: var(--color-base-100);
     z-index: var(--z-loader);
     display: flex;
     flex-direction: column;
@@ -1497,20 +1383,17 @@ body {
     gap: 24px;
     transition: opacity 0.5s ease;
 }
-
 .valdo-loader-overlay.fade-out {
     opacity: 0;
     pointer-events: none;
 }
 
-/* 3D rotating logo */
 .valdo-logo-3d {
     position: relative;
     width: 72px;
     height: 72px;
     perspective: 400px;
 }
-
 .valdo-logo-3d-inner {
     width: 100%;
     height: 100%;
@@ -1518,7 +1401,6 @@ body {
     transform-style: preserve-3d;
     animation: valdo-logo-rotate 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
-
 .valdo-logo-face {
     position: absolute;
     width: 72px;
@@ -1533,7 +1415,6 @@ body {
     letter-spacing: -0.04em;
     backface-visibility: hidden;
 }
-
 .valdo-logo-face.front {
     background: linear-gradient(
         135deg,
@@ -1543,7 +1424,6 @@ body {
     box-shadow: 0 0 30px var(--glow-blue);
     transform: translateZ(36px);
 }
-
 .valdo-logo-face.back {
     background: linear-gradient(
         135deg,
@@ -1554,7 +1434,6 @@ body {
     transform: translateZ(-36px) rotateY(180deg);
 }
 
-/* Light trail effect */
 .valdo-light-trail {
     position: absolute;
     inset: -20px;
@@ -1562,38 +1441,34 @@ body {
     background: conic-gradient(
         from 0deg,
         transparent 0%,
-        rgba(79, 142, 247, 0.6) 20%,
-        rgba(139, 92, 246, 0.6) 40%,
-        rgba(34, 211, 238, 0.4) 60%,
+        rgba(79, 142, 247, 0.5) 20%,
+        rgba(139, 92, 246, 0.5) 40%,
+        rgba(8, 145, 178, 0.3) 60%,
         transparent 80%
     );
     animation: valdo-trail-spin 2s linear infinite;
     filter: blur(8px);
-    opacity: 0.8;
+    opacity: 0.6;
 }
-
 .valdo-light-trail-inner {
     position: absolute;
     inset: 4px;
-    background: var(--color-base-50);
+    background: var(--color-base-100);
     border-radius: 24px;
 }
 
-/* Loading text */
 .valdo-loader-text {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #3d4263;
+    color: #a0aabf;
     animation: valdo-fade-pulse 1.5s ease-in-out infinite;
 }
-
 .valdo-loader-dots {
     display: flex;
     gap: 6px;
 }
-
 .valdo-loader-dot {
     width: 6px;
     height: 6px;
@@ -1601,7 +1476,6 @@ body {
     background: var(--color-accent-blue);
     animation: valdo-bounce-dot 1.4s ease-in-out infinite;
 }
-
 .valdo-loader-dot:nth-child(1) {
     animation-delay: 0s;
     background: var(--color-accent-blue);
@@ -1615,7 +1489,6 @@ body {
     background: var(--color-accent-purple);
 }
 
-/* Progress bar loader */
 .valdo-progress-bar {
     width: 200px;
     height: 3px;
@@ -1624,7 +1497,6 @@ body {
     overflow: hidden;
     box-shadow: var(--neu-inset);
 }
-
 .valdo-progress-fill {
     height: 100%;
     background: linear-gradient(
@@ -1639,30 +1511,28 @@ body {
 }
 
 /* ============================================================
-   DROPDOWN MENU
+   DROPDOWN
    ============================================================ */
 .valdo-dropdown {
     position: relative;
     display: inline-block;
 }
-
 .valdo-dropdown-menu {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
     min-width: 200px;
-    background: var(--color-base-400);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: var(--color-base-200);
+    border: 1px solid var(--color-base-500);
     border-radius: 12px;
     box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 16px 40px rgba(163, 177, 198, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     padding: 6px;
     z-index: 60;
     transform-origin: top right;
     animation: valdo-dropdown-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
 .valdo-dropdown-item {
     display: flex;
     align-items: center;
@@ -1670,30 +1540,27 @@ body {
     padding: 9px 12px;
     border-radius: 8px;
     font-size: 0.875rem;
-    color: #8892b0;
+    color: #7480a0;
     cursor: pointer;
     transition: all var(--transition-fast);
     text-decoration: none;
 }
-
 .valdo-dropdown-item:hover {
-    background: var(--color-base-500);
-    color: #c8ccdc;
+    background: var(--color-base-400);
+    color: #1e2340;
 }
-
 .valdo-dropdown-item.danger:hover {
-    background: rgba(239, 68, 68, 0.1);
-    color: #f87171;
+    background: rgba(239, 68, 68, 0.08);
+    color: #dc2626;
 }
-
 .valdo-dropdown-divider {
     height: 1px;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--color-base-500);
     margin: 4px 0;
 }
 
 /* ============================================================
-   TOAST NOTIFICATIONS
+   TOAST
    ============================================================ */
 .valdo-toast-container {
     position: fixed;
@@ -1705,28 +1572,25 @@ body {
     z-index: var(--z-toast);
     pointer-events: none;
 }
-
 .valdo-toast {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 14px 18px;
     border-radius: 12px;
-    background: var(--color-base-400);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: var(--color-base-200);
+    border: 1px solid var(--color-base-500);
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        0 10px 30px rgba(163, 177, 198, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     min-width: 280px;
     max-width: 380px;
     pointer-events: auto;
     animation: valdo-toast-in 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
-
 .valdo-toast.exit {
     animation: valdo-toast-out 0.25s ease forwards;
 }
-
 .valdo-toast-icon {
     width: 32px;
     height: 32px;
@@ -1736,24 +1600,22 @@ body {
     justify-content: center;
     flex-shrink: 0;
 }
-
 .valdo-toast.success .valdo-toast-icon {
-    background: rgba(52, 211, 153, 0.15);
-    color: #34d399;
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
 }
 .valdo-toast.error .valdo-toast-icon {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
+    background: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
 }
 .valdo-toast.warning .valdo-toast-icon {
-    background: rgba(245, 158, 11, 0.15);
-    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
 }
 .valdo-toast.info .valdo-toast-icon {
-    background: rgba(79, 142, 247, 0.15);
+    background: rgba(79, 142, 247, 0.12);
     color: var(--color-accent-blue);
 }
-
 .valdo-toast-content {
     flex: 1;
     min-width: 0;
@@ -1761,11 +1623,11 @@ body {
 .valdo-toast-title {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #e2e5f0;
+    color: #1e2340;
 }
 .valdo-toast-message {
     font-size: 0.8rem;
-    color: #6b7190;
+    color: #7480a0;
     margin-top: 2px;
 }
 
@@ -1775,47 +1637,43 @@ body {
 .valdo-tabs {
     display: flex;
     gap: 4px;
-    background: var(--color-base-200);
+    background: var(--color-base-300);
     border-radius: 12px;
     padding: 4px;
     box-shadow: var(--neu-inset);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-base-500);
 }
-
 .valdo-tab {
     flex: 1;
     padding: 8px 16px;
     border-radius: 9px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #4a5070;
+    color: #a0aabf;
     cursor: pointer;
     transition: all var(--transition-fast);
     text-align: center;
     white-space: nowrap;
 }
-
 .valdo-tab:hover:not(.active) {
-    color: #8892b0;
+    color: #5a6480;
 }
-
 .valdo-tab.active {
-    background: var(--color-base-400);
-    color: #c8ccdc;
+    background: var(--color-base-200);
+    color: #1e2340;
     box-shadow: var(--neu-shadow-sm);
 }
 
 /* ============================================================
-   PROGRESS INDICATORS
+   PROGRESS
    ============================================================ */
 .valdo-progress {
     height: 6px;
-    background: var(--color-base-200);
+    background: var(--color-base-400);
     border-radius: 99px;
     overflow: hidden;
     box-shadow: var(--neu-inset);
 }
-
 .valdo-progress-track {
     height: 100%;
     border-radius: 99px;
@@ -1823,7 +1681,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .valdo-progress-track::after {
     content: "";
     position: absolute;
@@ -1831,12 +1688,11 @@ body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.35),
         transparent
     );
     animation: valdo-shimmer 1.5s infinite;
 }
-
 .valdo-progress-track.blue {
     background: linear-gradient(
         90deg,
@@ -1852,7 +1708,7 @@ body {
     );
 }
 .valdo-progress-track.green {
-    background: linear-gradient(90deg, #34d399, #10b981);
+    background: linear-gradient(90deg, #10b981, #34d399);
 }
 
 /* ============================================================
@@ -1863,20 +1719,18 @@ body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.05) 20%,
-        rgba(255, 255, 255, 0.05) 80%,
+        var(--color-base-500) 20%,
+        var(--color-base-500) 80%,
         transparent
     );
     margin: 20px 0;
 }
-
 .valdo-divider-vertical {
     width: 1px;
     align-self: stretch;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-base-500);
 }
 
-/* Glow text */
 .valdo-glow-blue {
     text-shadow: 0 0 20px var(--glow-blue);
     color: var(--color-accent-blue);
@@ -1886,7 +1740,6 @@ body {
     color: var(--color-accent-purple);
 }
 
-/* Gradient border utility */
 .valdo-gradient-border {
     position: relative;
     border-radius: var(--radius-card);
@@ -1904,25 +1757,22 @@ body {
         var(--color-accent-cyan)
     );
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
-/* Frosted glass */
 .valdo-glass {
-    background: rgba(28, 31, 48, 0.7);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Skeleton loader */
 .valdo-skeleton {
     background: var(--color-base-400);
     border-radius: 6px;
     position: relative;
     overflow: hidden;
 }
-
 .valdo-skeleton::after {
     content: "";
     position: absolute;
@@ -1930,7 +1780,7 @@ body {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.04) 50%,
+        rgba(255, 255, 255, 0.5) 50%,
         transparent 100%
     );
     animation: valdo-shimmer 1.5s infinite;
@@ -1944,34 +1794,30 @@ body {
     align-items: center;
     gap: 4px;
 }
-
 .valdo-page-btn {
     width: 34px;
     height: 34px;
     border-radius: 8px;
     background: var(--color-base-300);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-base-500);
     box-shadow: var(--neu-shadow-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: #6b7190;
+    color: #7480a0;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
-
 .valdo-page-btn:hover {
     background: var(--color-base-400);
-    color: #c8ccdc;
+    color: #1e2340;
     box-shadow: var(--neu-shadow-md);
 }
-
 .valdo-page-btn:active {
     box-shadow: var(--neu-inset);
 }
-
 .valdo-page-btn.active {
     background: linear-gradient(
         135deg,
@@ -1996,7 +1842,6 @@ body {
         transform: rotate(360deg);
     }
 }
-
 @keyframes valdo-logo-rotate {
     0% {
         transform: rotateY(0deg) rotateX(0deg);
@@ -2014,7 +1859,6 @@ body {
         transform: rotateY(360deg) rotateX(0deg);
     }
 }
-
 @keyframes valdo-trail-spin {
     from {
         transform: rotate(0deg);
@@ -2023,7 +1867,6 @@ body {
         transform: rotate(360deg);
     }
 }
-
 @keyframes valdo-pulse {
     0%,
     100% {
@@ -2033,7 +1876,6 @@ body {
         opacity: 0.4;
     }
 }
-
 @keyframes valdo-fade-pulse {
     0%,
     100% {
@@ -2043,7 +1885,6 @@ body {
         opacity: 1;
     }
 }
-
 @keyframes valdo-bounce-dot {
     0%,
     80%,
@@ -2056,7 +1897,6 @@ body {
         opacity: 1;
     }
 }
-
 @keyframes valdo-shimmer {
     from {
         transform: translateX(-100%);
@@ -2065,7 +1905,6 @@ body {
         transform: translateX(100%);
     }
 }
-
 @keyframes valdo-progress-slide {
     0% {
         background-position: 200% 0;
@@ -2079,7 +1918,6 @@ body {
         width: 10%;
     }
 }
-
 @keyframes valdo-dropdown-in {
     from {
         transform: scale(0.9);
@@ -2090,7 +1928,6 @@ body {
         opacity: 1;
     }
 }
-
 @keyframes valdo-toast-in {
     from {
         transform: translateX(100%) scale(0.8);
@@ -2101,7 +1938,6 @@ body {
         opacity: 1;
     }
 }
-
 @keyframes valdo-toast-out {
     from {
         transform: translateX(0) scale(1);
@@ -2112,18 +1948,6 @@ body {
         opacity: 0;
     }
 }
-
-@keyframes valdo-modal-expand {
-    from {
-        transform: scale(0.05);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
 @keyframes valdo-float {
     0%,
     100% {
@@ -2134,7 +1958,6 @@ body {
     }
 }
 
-/* Floating utility */
 .valdo-float {
     animation: valdo-float 4s ease-in-out infinite;
 }
@@ -2142,18 +1965,13 @@ body {
 /* ============================================================
    LIVEWIRE HELPERS
    ============================================================ */
-
-/* Wire loading overlay on card */
 .valdo-card[wire\:loading\.class] {
     opacity: 0.6;
     pointer-events: none;
 }
-
-/* Livewire loading bar */
 [wire\:loading] {
     display: none;
 }
-
 .valdo-wire-loading-bar {
     position: fixed;
     top: 0;
@@ -2171,15 +1989,11 @@ body {
 }
 
 /* ============================================================
-   ALPINE.JS DIRECTIVES — Transition helpers
+   ALPINE.JS DIRECTIVES
    ============================================================ */
-
-/* x-transition for modal backdrop */
 [x-cloak] {
     display: none !important;
 }
-
-/* These classes work with Alpine x-transition */
 .valdo-enter {
     transition: all 0.3s ease;
 }
@@ -2221,7 +2035,6 @@ body {
         margin-left: 0 !important;
     }
 }
-
 @media (max-width: 640px) {
     .valdo-main {
         padding: 16px;
@@ -2243,12 +2056,7 @@ body {
 }
 
 /* ============================================================
-   DARK THEME VARIABLE OVERRIDES (already dark-native)
-   In case you need to add light mode, override here.
-   ============================================================ */
-
-/* ============================================================
-   TAILWIND UTILITIES — Extend with @utility for CSS vars
+   TAILWIND UTILITIES
    ============================================================ */
 @layer utilities {
     .bg-base-50 {

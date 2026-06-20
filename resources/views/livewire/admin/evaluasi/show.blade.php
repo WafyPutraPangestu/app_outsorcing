@@ -3,7 +3,7 @@
     <!-- Tombol Kembali -->
     <div class="mb-6">
         <a href="{{ route('admin.evaluasi.index') }}" wire:navigate
-            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors">
+            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-black transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
                 </path>
@@ -25,7 +25,7 @@
                 <div
                     class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-purple to-accent-pink p-0.5 shadow-neu-lg valdo-float">
                     <div
-                        class="w-full h-full bg-base-300 rounded-2xl flex items-center justify-center text-2xl font-bold text-white">
+                        class="w-full h-full bg-base-300 rounded-2xl flex items-center justify-center text-2xl font-bold text-black">
                         {{ substr($evaluasi->penempatan->karyawan->nama_karyawan, 0, 1) }}
                     </div>
                 </div>
@@ -44,7 +44,7 @@
 
             <div class="text-left md:text-right">
                 <div class="valdo-text-label mb-1">Periode Evaluasi</div>
-                <div class="text-2xl font-bold text-white tracking-widest">{{ $evaluasi->periode }}</div>
+                <div class="text-2xl font-bold text-black tracking-widest">{{ $evaluasi->periode }}</div>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
             <div class="valdo-stat-card flex items-center justify-between border-l-4 border-l-accent-blue">
                 <div>
                     <h3 class="valdo-text-label">Skor Akhir Evaluasi</h3>
-                    <div class="text-5xl font-black text-white mt-2">{{ $evaluasi->total_nilai_akhir ?? '0.00' }}</div>
+                    <div class="text-5xl font-black text-black mt-2">{{ $evaluasi->total_nilai_akhir ?? '0.00' }}</div>
                 </div>
                 <div class="w-20 h-20 rounded-full border-4 border-accent-blue/20 flex items-center justify-center">
                     <span class="text-accent-blue font-bold text-xl">100</span>
@@ -111,7 +111,7 @@
 
                                 <div class="relative z-10 flex justify-between items-center">
                                     <div>
-                                        <h4 class="font-bold text-white">{{ $dtl->kriteria->nama_kriteria }}</h4>
+                                        <h4 class="font-bold text-black">{{ $dtl->kriteria->nama_kriteria }}</h4>
                                         <p class="text-xs text-gray-500 mt-1">Bobot:
                                             {{ (int) $dtl->kriteria->bobot_nilai }}%</p>
                                     </div>
@@ -165,7 +165,7 @@
                 @if ($evaluasi->status_evaluasi === 'menunggu_verifikasi')
                     <form>
                         <div class="valdo-input-group mb-6">
-                            <label class="valdo-label text-white mb-2">Catatan Verifikator (Opsional/Wajib jika
+                            <label class="valdo-label text-black mb-2">Catatan Verifikator (Opsional/Wajib jika
                                 ditolak)</label>
                             <textarea wire:model="catatan_verifikator" class="valdo-textarea" placeholder="Tambahkan catatan internal..."></textarea>
                             @error('catatan_verifikator')
@@ -210,7 +210,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500">Diverifikasi Oleh:</p>
-                                <p class="text-sm font-bold text-white">{{ $evaluasi->verifikator->name }}</p>
+                                <p class="text-sm font-bold text-black">{{ $evaluasi->verifikator->name }}</p>
                                 <p class="text-xs text-accent-cyan">
                                     {{ $evaluasi->verified_at ? $evaluasi->verified_at->format('d M Y H:i') : '' }}</p>
                             </div>

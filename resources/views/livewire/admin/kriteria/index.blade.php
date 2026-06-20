@@ -50,7 +50,7 @@
                 @endif
             </div>
             <div>
-                <h3 class="text-white font-bold text-lg">Total Bobot Kriteria Aktif</h3>
+                <h3 class="text-black font-bold text-lg">Total Bobot Kriteria Aktif</h3>
                 <p class="{{ $total == 100 ? 'text-emerald-400/80' : 'text-red-400/80' }} text-sm">
                     {{ $total == 100 ? 'Kondisi ideal terpenuhi. Sistem siap digunakan.' : 'Peringatan: Total bobot harus tepat 100 agar evaluasi akurat.' }}
                 </p>
@@ -83,7 +83,7 @@
                         <tr class="group hover:bg-base-400/30 transition-colors">
                             <td class="text-gray-500 font-mono text-xs">#{{ $kriteria->id_kriteria }}</td>
                             <td>
-                                <div class="font-bold text-white">{{ $kriteria->nama_kriteria }}</div>
+                                <div class="font-bold text-black">{{ $kriteria->nama_kriteria }}</div>
                             </td>
                             <td>
                                 <span
@@ -102,7 +102,7 @@
                             <td class="text-right">
                                 <div class="flex justify-end gap-2">
                                     <a href="{{ route('admin.kriteria.show', $kriteria->id_kriteria) }}" wire:navigate
-                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-cyan hover:text-white"
+                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-cyan hover:text-black"
                                         title="Lihat Detail">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -113,7 +113,7 @@
                                         </svg>
                                     </a>
                                     <a href="{{ route('admin.kriteria.edit', $kriteria->id_kriteria) }}" wire:navigate
-                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-blue hover:text-white"
+                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-blue hover:text-black"
                                         title="Edit Data">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

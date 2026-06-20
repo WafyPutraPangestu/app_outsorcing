@@ -2,7 +2,7 @@
 
     <div class="mb-6">
         <a href="{{ route('admin.penempatan.index') }}" wire:navigate
-            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors">
+            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-black transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
                 </path>
@@ -28,11 +28,11 @@
             </h3>
             <div class="flex items-center gap-4 relative z-10">
                 <div
-                    class="w-14 h-14 rounded-full bg-base-200 border border-white/5 flex items-center justify-center font-bold text-xl text-white shadow-neu-inset">
+                    class="w-14 h-14 rounded-full bg-base-200 border border-white/5 flex items-center justify-center font-bold text-xl text-black shadow-neu-inset">
                     {{ substr($penempatan->karyawan->nama_karyawan, 0, 1) }}
                 </div>
                 <div>
-                    <h2 class="text-xl font-bold text-white">{{ $penempatan->karyawan->nama_karyawan }}</h2>
+                    <h2 class="text-xl font-bold text-black">{{ $penempatan->karyawan->nama_karyawan }}</h2>
                     <p class="text-sm text-gray-400">NIK: {{ $penempatan->karyawan->nik }}</p>
                 </div>
             </div>
@@ -57,11 +57,11 @@
             </h3>
             <div class="flex items-center gap-4 relative z-10">
                 <div
-                    class="w-14 h-14 rounded-full bg-base-200 border border-white/5 flex items-center justify-center font-bold text-xl text-white shadow-neu-inset">
+                    class="w-14 h-14 rounded-full bg-base-200 border border-white/5 flex items-center justify-center font-bold text-xl text-black shadow-neu-inset">
                     {{ substr($penempatan->klien->nama_perusahaan, 0, 1) }}
                 </div>
                 <div>
-                    <h2 class="text-xl font-bold text-white">{{ $penempatan->klien->nama_perusahaan }}</h2>
+                    <h2 class="text-xl font-bold text-black">{{ $penempatan->klien->nama_perusahaan }}</h2>
                     <p class="text-sm text-gray-400">Kontak: {{ $penempatan->klien->nama_kontak_person ?? '-' }}</p>
                 </div>
             </div>
@@ -89,7 +89,7 @@
             class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-base-200 rounded-xl border border-white/5 shadow-neu-inset">
             <div>
                 <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Tanggal Mulai</div>
-                <div class="text-lg text-white font-medium flex items-center gap-2">
+                <div class="text-lg text-black font-medium flex items-center gap-2">
                     <svg class="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
@@ -100,7 +100,7 @@
             </div>
             <div>
                 <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Tanggal Selesai</div>
-                <div class="text-lg text-white font-medium flex items-center gap-2">
+                <div class="text-lg text-black font-medium flex items-center gap-2">
                     <svg class="w-5 h-5 {{ $penempatan->tanggal_selesai ? 'text-accent-pink' : 'text-gray-500' }}"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

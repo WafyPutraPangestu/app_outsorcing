@@ -2,7 +2,7 @@
 
     <div class="mb-6">
         <a href="{{ route('admin.kriteria.index') }}" wire:navigate
-            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors">
+            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-black transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
                 </path>
@@ -50,7 +50,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 relative z-10">
                 <div class="bg-base-200 p-5 rounded-xl border border-white/5 shadow-neu-inset">
                     <h3 class="valdo-text-label mb-2">Bobot Nilai</h3>
-                    <div class="text-4xl font-black text-white">
+                    <div class="text-4xl font-black text-black">
                         {{ (float) $kriteria->bobot_nilai }}<span class="text-lg text-gray-500">%</span>
                     </div>
                 </div>

@@ -80,12 +80,12 @@
                 <div
                     style="background:var(--color-base-400);border-radius:12px;padding:14px 16px;border:1px solid rgba(255,255,255,0.05);box-shadow:var(--neu-shadow-sm);">
                     <p class="valdo-text-label" style="margin-bottom:6px;">Total Penempatan</p>
-                    <p style="font-size:1.5rem;font-weight:800;color:#e2e5f0;">{{ $totalPenempatan }}</p>
+                    <p style="font-size:1.5rem;font-weight:800;color:#000;">{{ $totalPenempatan }}</p>
                 </div>
                 <div
                     style="background:var(--color-base-400);border-radius:12px;padding:14px 16px;border:1px solid rgba(255,255,255,0.05);box-shadow:var(--neu-shadow-sm);">
                     <p class="valdo-text-label" style="margin-bottom:6px;">Total Evaluasi</p>
-                    <p style="font-size:1.5rem;font-weight:800;color:#e2e5f0;">{{ $totalEvaluasi }}</p>
+                    <p style="font-size:1.5rem;font-weight:800;color:#000;">{{ $totalEvaluasi }}</p>
                 </div>
                 <div
                     style="background:var(--color-base-400);border-radius:12px;padding:14px 16px;border:1px solid rgba(255,255,255,0.05);box-shadow:var(--neu-shadow-sm);">
@@ -99,7 +99,7 @@
                     style="background:var(--color-base-400);border-radius:12px;padding:14px 16px;border:1px solid rgba(255,255,255,0.05);box-shadow:var(--neu-shadow-sm);">
                     <p class="valdo-text-label" style="margin-bottom:6px;">Klien Saat Ini</p>
                     <p
-                        style="font-size:0.875rem;font-weight:700;color:#c8ccdc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                        style="font-size:0.875rem;font-weight:700;color:#000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
                         {{ $penempatanAktif?->klien?->nama_perusahaan ?? '—' }}
                     </p>
                 </div>

@@ -2,7 +2,7 @@
 
     <div class="mb-6">
         <a href="{{ route('admin.klien.index') }}" wire:navigate
-            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors">
+            class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-black transition-colors">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
                 </path>
@@ -22,7 +22,7 @@
             <div
                 class="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-blue to-accent-indigo p-0.5 shadow-neu-lg valdo-float">
                 <div
-                    class="w-full h-full bg-base-300 rounded-2xl flex items-center justify-center text-3xl font-black text-white">
+                    class="w-full h-full bg-base-300 rounded-2xl flex items-center justify-center text-3xl font-black text-black">
                     {{ substr($klien->nama_perusahaan, 0, 1) }}
                 </div>
             </div>
@@ -91,7 +91,7 @@
                             {{ substr($p->karyawan->nama_karyawan, 0, 1) }}
                         </div>
                         <div>
-                            <h3 class="font-bold text-white leading-tight">{{ $p->karyawan->nama_karyawan }}</h3>
+                            <h3 class="font-bold text-black leading-tight">{{ $p->karyawan->nama_karyawan }}</h3>
                             <p class="text-xs text-accent-cyan">{{ $p->karyawan->posisi }}</p>
                         </div>
                     </div>
