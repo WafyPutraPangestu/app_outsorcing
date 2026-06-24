@@ -54,4 +54,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/{id_evaluasi}', App\Livewire\Admin\Evaluasi\Show::class)->name('show');
     Route::get('/', App\Livewire\Admin\Evaluasi\Index::class)->name('index');
   });
+
+  Route::prefix('admin/kontrak')->name('admin.kontrak.')->group(function () {
+    Route::get('/', App\Livewire\Admin\Kontrak\Index::class)->name('index');
+
+    Route::get('/{id_karyawan}', App\Livewire\Admin\Kontrak\Show::class)->name('show');
+  });
 });

@@ -156,6 +156,28 @@
                         </span>
                     @endif
                 </a>
+                {{-- Manajemen Kontrak --}}
+                <a href="{{ route('admin.kontrak.index') }}" wire:navigate
+                    class="valdo-nav-item {{ request()->routeIs('admin.kontrak.*') ? 'active' : '' }}"
+                    title="Manajemen Kontrak">
+                    <span class="valdo-nav-item-icon" aria-hidden="true">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <rect x="6" y="4" width="12" height="17" rx="2" />
+                            <path stroke-linecap="round" d="M9 4V3a1 1 0 011-1h4a1 1 0 011 1v1" />
+                            <path stroke-linecap="round" d="M9 12l2 2 4-4" />
+                        </svg>
+                    </span>
+                    <span class="valdo-nav-item-label">Manajemen Kontrak</span>
+                    {{-- Badge kontrak hampir habis (optional, bisa diisi dari component) --}}
+                    @php $kontrakHampirHabisCount = 0; @endphp
+                    @if ($kontrakHampirHabisCount > 0)
+                        <span class="ml-auto text-[.65rem] font-bold px-2 py-0.5 rounded-full shrink-0"
+                            style="background:rgba(232,121,249,0.18);color:var(--color-accent-pink);border:1px solid rgba(232,121,249,0.25)">
+                            {{ $kontrakHampirHabisCount }}
+                        </span>
+                    @endif
+                </a>
             @endcan
 
             {{-- ──── MANAJEMEN SECTION ──── --}}
