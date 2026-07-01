@@ -1,5 +1,4 @@
-<div x-data="homeCtrl()" x-init="init()" class="relative w-full overflow-x-hidden"
-    style="background:var(--color-base-100);">
+<div x-data="homeCtrl()" x-init="init()" style="background:var(--color-base-100);">
 
     {{-- ═══════════════════════════════════════════════════════
          CURSOR GLOW

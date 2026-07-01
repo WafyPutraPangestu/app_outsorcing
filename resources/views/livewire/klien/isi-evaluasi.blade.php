@@ -14,7 +14,7 @@
                         </svg>
                     </div>
                 </div>
-                <h2 class="valdo-heading-lg mb-2 text-white">Sukses!</h2>
+                <h2 class="valdo-heading-lg mb-2 text-black">Sukses!</h2>
                 <p class="text-gray-400">{{ session('message') }}</p>
             @else
                 <!-- Jika token hangus, kadaluarsa, atau salah -->
@@ -26,7 +26,7 @@
                         </svg>
                     </div>
                 </div>
-                <h2 class="valdo-heading-lg mb-2 text-white">Akses Ditolak</h2>
+                <h2 class="valdo-heading-lg mb-2 text-black">Akses Ditolak</h2>
                 <p class="text-gray-400">{{ $pesanError }}</p>
             @endif
         </div>
@@ -56,7 +56,7 @@
 
                 <div>
                     <span class="valdo-text-label block mb-1">Karyawan yang Dievaluasi</span>
-                    <h3 class="text-xl font-bold text-white">
+                    <h3 class="text-xl font-bold text-black">
                         {{ $tokenData->evaluasi->penempatan->karyawan->nama_karyawan }}</h3>
                     <p class="text-accent-cyan text-sm">{{ $tokenData->evaluasi->penempatan->karyawan->posisi }}</p>
                 </div>
@@ -65,7 +65,7 @@
             <!-- Form Pengisian Nilai -->
             <form wire:submit.prevent="save">
                 <div class="mb-8">
-                    <h3 class="valdo-text-label mb-4 text-white">Form Penilaian (Skala 0 - 100)</h3>
+                    <h3 class="valdo-text-label mb-4 text-black">Form Penilaian (Skala 0 - 100)</h3>
 
                     <div class="space-y-5">
                         <!-- Melakukan perulangan untuk setiap kriteria yang aktif -->
@@ -73,7 +73,7 @@
                             <div
                                 class="valdo-input-group p-4 bg-base-200 rounded-xl border border-white/5 transition-normal hover:border-accent-blue/30">
                                 <label class="valdo-label flex justify-between w-full mb-2">
-                                    <span class="text-white">{{ $kriteria->nama_kriteria }}</span>
+                                    <span class="text-black">{{ $kriteria->nama_kriteria }}</span>
                                     <span class="text-gray-500 font-normal">Bobot:
                                         {{ (int) $kriteria->bobot_nilai }}%</span>
                                 </label>
@@ -92,7 +92,7 @@
 
                 <!-- Kolom Komentar Klien -->
                 <div class="valdo-input-group mb-8">
-                    <label class="valdo-label text-white mb-2">Komentar / Feedback Klien (Opsional)</label>
+                    <label class="valdo-label text-black mb-2">Komentar / Feedback Klien (Opsional)</label>
                     <textarea wire:model="komentar_klien" class="valdo-textarea"
                         placeholder="Tuliskan catatan, saran, atau evaluasi tambahan Anda di sini..."></textarea>
                     @error('komentar_klien')

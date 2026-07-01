@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Kriteria;
 
 use App\Models\KriteriaPenilaian;
 use App\Models\LogAktivitas;
+use Illuminate\Database\QueryException;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
@@ -44,6 +45,28 @@ class Index extends Component
             idTarget: $kriteria->id_kriteria,
             dataBaru: ['is_aktif' => $kriteria->is_aktif]
         );
+    }
+    public function hapus(int $id): void
+    {
+        $kriteria = KriteriaPenilaian::findOrFail($id);
+        $dataLama = $kriteria->toArray();
+        $nama     = $kriteria->nama_kriteria;
+
+        try {
+            $kriteria->delete();
+
+            LogAktivitas::catat(
+                aksi: 'delete',
+                tabelTarget: 'kriteria_penilaians',
+                idTarget: $id,
+                dataLama: $dataLama,
+            );
+
+            session()->flash('message', "Kriteria \"{$nama}\" berhasil dihapus.");
+        } catch (QueryException $e) {
+            // Kena constraint restrictOnDelete dari detail_evaluasi
+            session()->flash('error', "Kriteria \"{$nama}\" tidak bisa dihapus karena sudah pernah dipakai untuk menilai karyawan.");
+        }
     }
 
     public function render()

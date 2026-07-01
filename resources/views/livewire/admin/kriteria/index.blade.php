@@ -1,4 +1,4 @@
-<div>
+<div x-data="{ confirmDelete: false, deleteId: null, deleteName: '' }">
 
     <!-- Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
@@ -15,7 +15,7 @@
         </a>
     </div>
 
-    <!-- Flash Message -->
+    <!-- Flash Message: Sukses -->
     @if (session()->has('message'))
         <div class="valdo-toast success mb-6 animate-[valdo-toast-in_0.3s_ease-out]"
             style="position: relative; right: auto; bottom: auto; max-width: 100%;">
@@ -25,6 +25,22 @@
             <div class="valdo-toast-content">
                 <div class="valdo-toast-title">Berhasil</div>
                 <div class="valdo-toast-message">{{ session('message') }}</div>
+            </div>
+        </div>
+    @endif
+
+    {{-- Flash Message: Gagal (misal kriteria masih dipakai di evaluasi) --}}
+    @if (session()->has('error'))
+        <div class="valdo-toast error mb-6 animate-[valdo-toast-in_0.3s_ease-out]"
+            style="position: relative; right: auto; bottom: auto; max-width: 100%;">
+            <div class="valdo-toast-icon"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                </svg></div>
+            <div class="valdo-toast-content">
+                <div class="valdo-toast-title">Gagal</div>
+                <div class="valdo-toast-message">{{ session('error') }}</div>
             </div>
         </div>
     @endif
@@ -115,12 +131,25 @@
                                     <a href="{{ route('admin.kriteria.edit', $kriteria->id_kriteria) }}" wire:navigate
                                         class="valdo-btn valdo-btn-sm valdo-btn-ghost text-accent-blue hover:text-black"
                                         title="Edit Data">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                                             </path>
                                         </svg>
                                     </a>
+
+                                    {{-- Tombol Hapus: buka modal konfirmasi Alpine, belum eksekusi apapun --}}
+                                    <button type="button"
+                                        @click="deleteId = {{ $kriteria->id_kriteria }}; deleteName = '{{ addslashes($kriteria->nama_kriteria) }}'; confirmDelete = true"
+                                        class="valdo-btn valdo-btn-sm valdo-btn-ghost text-red-400 hover:text-black"
+                                        title="Hapus Data">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -138,4 +167,54 @@
             {{ $kriterias->links() }}
         </div>
     </div>
+
+    {{-- ══════════════════════════════════════════
+         MODAL KONFIRMASI HAPUS (Alpine.js murni)
+    ══════════════════════════════════════════ --}}
+    <div x-show="confirmDelete" x-cloak x-transition:enter="transition ease-out duration-150"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-1"
+        x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-1"
+        x-transition:leave-end="opacity-0" class="valdo-modal-backdrop open"
+        @keydown.escape.window="confirmDelete = false">
+        <div class="valdo-modal" style="max-width: 420px;" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-1 scale-100">
+            <div class="valdo-modal-header">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div
+                        style="width:36px;height:36px;border-radius:10px;background:rgba(239,68,68,0.15);display:flex;align-items:center;justify-content:center;color:#f87171;">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </div>
+                    <p class="valdo-heading-md" style="font-size:1rem;">Hapus Kriteria?</p>
+                </div>
+                <button @click="confirmDelete = false" class="valdo-modal-close">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="valdo-modal-body">
+                <p style="color:#8892b0;font-size:0.9rem;line-height:1.6;">
+                    Anda akan menghapus kriteria <strong style="color:#c8ccdc;" x-text="deleteName"></strong>.
+                    Tindakan ini tidak bisa dibatalkan. Kriteria yang sudah pernah dipakai untuk menilai
+                    karyawan tidak akan bisa dihapus.
+                </p>
+            </div>
+            <div class="valdo-modal-footer">
+                <button type="button" @click="confirmDelete = false" class="valdo-btn valdo-btn-ghost">
+                    Batal
+                </button>
+                <button type="button" @click="$wire.hapus(deleteId); confirmDelete = false"
+                    class="valdo-btn valdo-btn-danger">
+                    Ya, Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>

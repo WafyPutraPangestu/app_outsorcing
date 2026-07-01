@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    @livewire('components.navbar')
+    @livewire('components.navbar', key(request()->path()))
 
     <main id="valdo-main" class="valdo-main" style="transition: margin-left var(--transition-normal);">
         {{ $slot }}

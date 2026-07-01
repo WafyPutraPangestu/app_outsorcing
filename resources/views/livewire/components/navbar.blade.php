@@ -199,9 +199,9 @@
                 </a>
 
                 {{-- Verifikasi Nilai --}}
-                <a href="{{ route('manajemen.verifikasi') }}" wire:navigate
-                    class="valdo-nav-item {{ request()->routeIs('manajemen.verifikasi.*') ? 'active' : '' }}"
-                    title="Verifikasi Nilai">
+                <a href="{{ route('manajemen.monitor-evaluasi') }}" wire:navigate
+                    class="valdo-nav-item {{ request()->routeIs('manajemen.monitor-evaluasi') ? 'active' : '' }}"
+                    title="Monitor Evaluasi">
                     <span class="valdo-nav-item-icon" aria-hidden="true">
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -209,12 +209,12 @@
                                 d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                     </span>
-                    <span class="valdo-nav-item-label">Verifikasi Nilai</span>
+                    <span class="valdo-nav-item-label">Monitor Evaluasi</span>
                 </a>
 
                 {{-- Log Aktivitas --}}
-                <a href="#" wire:navigate
-                    class="valdo-nav-item {{ request()->routeIs('manajemen.log.*') ? 'active' : '' }}"
+                <a href="{{ route('manajemen.log-aktivitas') }}" wire:navigate
+                    class="valdo-nav-item {{ request()->routeIs('manajemen.log-aktivitas') ? 'active' : '' }}"
                     title="Log Aktivitas">
                     <span class="valdo-nav-item-icon" aria-hidden="true">
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -279,7 +279,7 @@
                         @click.outside="open = false" class="valdo-dropdown-menu"
                         style="bottom:calc(100% + 8px);top:auto;left:0;right:0;min-width:0" role="menu">
 
-                        <a href="#" wire:navigate class="valdo-dropdown-item" role="menuitem">
+                        <a href="{{ route('profil') }}" wire:navigate class="valdo-dropdown-item" role="menuitem">
                             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
@@ -287,14 +287,7 @@
                             </svg>
                             Profil Saya
                         </a>
-                        <a href="#" wire:navigate class="valdo-dropdown-item" role="menuitem">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                            Ganti Password
-                        </a>
+
                         <div class="valdo-dropdown-divider"></div>
 
 
@@ -363,42 +356,7 @@
         {{-- Topbar actions --}}
         <div class="valdo-topbar-actions">
 
-            {{-- Notifikasi --}}
-            <div class="relative" x-data="{ open: false }">
-                <button @click="open = !open" class="valdo-icon-btn" aria-label="Notifikasi" :aria-expanded="open">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
-                        viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                    </svg>
-                    <span class="valdo-badge-dot" aria-label="Ada notifikasi baru"></span>
-                </button>
-                <div x-show="open" x-transition:enter="transition ease-out duration-150"
-                    x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-1 scale-100"
-                    x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-1"
-                    x-transition:leave-end="opacity-0 scale-95" @click.outside="open = false"
-                    class="valdo-dropdown-menu" style="min-width:280px" role="region" aria-label="Notifikasi">
-                    <p
-                        style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3d4263;padding:4px 12px 8px">
-                        Notifikasi Terbaru
-                    </p>
-                    <div class="valdo-dropdown-item" style="flex-direction:column;align-items:flex-start;gap:2px">
-                        <span style="font-size:.82rem;color:#c8ccdc;font-weight:500">Evaluasi baru menunggu
-                            verifikasi</span>
-                        <span style="font-size:.72rem;color:#4a5070">2 menit lalu</span>
-                    </div>
-                    <div class="valdo-dropdown-item" style="flex-direction:column;align-items:flex-start;gap:2px">
-                        <span style="font-size:.82rem;color:#c8ccdc;font-weight:500">Kontrak Ahmad Fauzi hampir
-                            habis</span>
-                        <span style="font-size:.72rem;color:#4a5070">1 jam lalu</span>
-                    </div>
-                    <div class="valdo-dropdown-divider"></div>
-                    <a href="#" wire:navigate class="valdo-dropdown-item"
-                        style="justify-content:center;color:var(--color-accent-blue);font-size:.8rem;font-weight:600">
-                        Lihat semua notifikasi
-                    </a>
-                </div>
-            </div>
+            @livewire('components.notifikasi')
 
             {{-- Divider vertical --}}
             <div class="valdo-divider-vertical hidden sm:block" style="height:28px"></div>
@@ -420,7 +378,7 @@
                             </p>
                             <p
                                 style="font-size:.65rem;color:var(--color-accent-blue);font-weight:600;text-transform:uppercase;letter-spacing:.06em">
-                                {{ ucfirst(auth()->user()->role ?? '') }}
+                                {{ auth()->user()->role === 'admin' ? 'HRD' : 'Manajer HR' }}
                             </p>
                         </div>
                         <svg class="w-3 h-3 text-[#6b7190] hidden sm:block transition-transform duration-200"
@@ -435,7 +393,7 @@
                         x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-1"
                         x-transition:leave-end="opacity-0 scale-95" @click.outside="open = false"
                         class="valdo-dropdown-menu" role="menu">
-                        <a href="#" wire:navigate class="valdo-dropdown-item" role="menuitem">
+                        <a href="{{ route('profil') }}" wire:navigate class="valdo-dropdown-item" role="menuitem">
                             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
@@ -443,15 +401,7 @@
                             </svg>
                             Profil Saya
                         </a>
-                        <a href="#" wire:navigate class="valdo-dropdown-item" role="menuitem">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <circle cx="12" cy="12" r="3" />
-                                <path stroke-linecap="round"
-                                    d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
-                            </svg>
-                            Pengaturan
-                        </a>
+
                         <div class="valdo-dropdown-divider"></div>
                         <form wire:submit.prevent="logout">
                             <button type="submit" class="valdo-dropdown-item danger w-full text-left" role="menuitem">
