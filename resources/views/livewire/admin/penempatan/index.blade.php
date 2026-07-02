@@ -58,14 +58,22 @@
                     @forelse ($penempatans as $penempatan)
                         <tr class="group hover:bg-base-400/30 transition-colors">
                             <td>
-                                <div class="font-bold text-black">{{ $penempatan->karyawan->nama_karyawan }}</div>
+                                <!-- Tambahkan ?-> dan nilai fallback ?? -->
+                                <div class="font-bold text-black">
+                                    {{ $penempatan->karyawan?->nama_karyawan ?? 'Karyawan Dihapus/Tidak Ditemukan' }}
+                                </div>
                                 <div class="text-xs text-gray-500 font-mono mt-0.5">NIK:
-                                    {{ $penempatan->karyawan->nik }}</div>
-                            </td>
-                            <td>
-                                <div class="text-accent-cyan font-medium">{{ $penempatan->klien->nama_perusahaan }}
+                                    {{ $penempatan->karyawan?->nik ?? '-' }}
                                 </div>
                             </td>
+                            <td>
+                                <!-- Tambahkan ?-> untuk klien juga sebagai langkah preventif -->
+                                <div class="text-accent-cyan font-medium">
+                                    {{ $penempatan->klien?->nama_perusahaan ?? 'Klien Dihapus/Tidak Ditemukan' }}
+                                </div>
+                            </td>
+
+                            <!-- Sisa baris lainnya (Periode, Status, Aksi) biarkan tetap sama -->
                             <td>
                                 <div class="text-sm text-gray-300 flex items-center gap-2">
                                     <span>{{ $penempatan->tanggal_mulai->format('d M Y') }}</span>
