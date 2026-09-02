@@ -25,8 +25,12 @@
             {{-- Avatar --}}
             <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-top:-36px;">
                 <div
-                    style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--color-accent-blue),var(--color-accent-purple));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;box-shadow:0 0 24px var(--glow-blue), 0 8px 20px rgba(0,0,0,0.5);border:3px solid var(--color-base-300);">
-                    {{ strtoupper(substr($karyawan->nama_karyawan, 0, 2)) }}
+                    style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--color-accent-blue),var(--color-accent-purple));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;box-shadow:0 0 24px var(--glow-blue), 0 8px 20px rgba(0,0,0,0.5);border:3px solid var(--color-base-300);overflow:hidden;">
+                    @if ($karyawan->foto)
+                        <img src="{{ Storage::url($karyawan->foto) }}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+                    @else
+                        {{ strtoupper(substr($karyawan->nama_karyawan, 0, 2)) }}
+                    @endif
                 </div>
                 <div class="flex gap-2" style="padding-bottom:4px;">
                     <a href="{{ route('admin.karyawan.edit', $karyawan->id_karyawan) }}" wire:navigate

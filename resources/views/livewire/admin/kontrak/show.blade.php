@@ -23,7 +23,7 @@
     {{-- ============================================================
          BREADCRUMB / HEADER
     ============================================================ --}}
-    <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-4 mb-6">
         <a href="{{ route('admin.kontrak.index') }}" wire:navigate class="valdo-icon-btn" title="Kembali">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -31,6 +31,13 @@
                 <polyline points="12 19 5 12 12 5" />
             </svg>
         </a>
+        <div class="valdo-table-avatar" style="width:52px;height:52px;font-size:1.2rem;border-radius:14px;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;">
+            @if ($karyawan->foto)
+                <img src="{{ Storage::url($karyawan->foto) }}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+            @else
+                {{ strtoupper(substr($karyawan->nama_karyawan, 0, 2)) }}
+            @endif
+        </div>
         <div>
             <h1 class="valdo-heading-lg">{{ $karyawan->nama_karyawan }}</h1>
             <p class="valdo-text-muted">{{ $karyawan->posisi }} · NIK <span

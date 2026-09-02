@@ -23,7 +23,7 @@ class Index extends Component
         // Optimasi: Menggunakan with() untuk mencegah N+1 Query pada relasi Karyawan dan Klien
         $penempatans = Penempatan::query()
             ->with([
-                'karyawan:id_karyawan,nama_karyawan,nik',
+                'karyawan:id_karyawan,nama_karyawan,nik,foto',
                 'klien:id_klien,nama_perusahaan'
             ])
             ->when($this->search, function ($query) {

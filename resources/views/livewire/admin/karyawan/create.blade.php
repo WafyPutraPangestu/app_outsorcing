@@ -147,6 +147,30 @@
                         @enderror
                     </div>
 
+                    {{-- Foto --}}
+                    <div class="valdo-input-group sm:col-span-2">
+                        <label class="valdo-label">Foto Profil <span class="valdo-text-muted" style="font-size:0.75rem; font-weight:normal;">(Opsional, max 2MB)</span></label>
+                        <div class="flex items-center gap-4 mt-2">
+                            <div class="w-20 h-20 rounded-xl border border-dashed border-gray-600 flex items-center justify-center overflow-hidden flex-shrink-0" style="background-color: var(--color-base-200);">
+                                @if ($foto)
+                                    <img src="{{ $foto->temporaryUrl() }}" class="w-full h-full object-cover">
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b7190" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                @endif
+                            </div>
+                            <div class="flex-1">
+                                <input type="file" wire:model="foto" accept="image/*" class="valdo-input @error('foto') error @enderror" style="padding-top: 8px;">
+                                <div wire:loading wire:target="foto" class="text-xs text-blue-500 mt-2">Mengunggah preview...</div>
+                                @error('foto')
+                                    <span class="valdo-input-error block mt-1">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 {{-- ── ACTIONS ── --}}

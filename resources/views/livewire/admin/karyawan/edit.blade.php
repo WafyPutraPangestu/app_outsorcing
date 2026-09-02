@@ -49,8 +49,12 @@
                 <div class="valdo-card-header">
                     <div class="flex items-center gap-3">
                         <div class="valdo-table-avatar"
-                            style="width:40px;height:40px;font-size:0.875rem;border-radius:12px;">
-                            {{ strtoupper(substr($karyawan->nama_karyawan, 0, 2)) }}
+                            style="width:40px;height:40px;font-size:0.875rem;border-radius:12px;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;">
+                            @if ($karyawan->foto)
+                                <img src="{{ Storage::url($karyawan->foto) }}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+                            @else
+                                {{ strtoupper(substr($karyawan->nama_karyawan, 0, 2)) }}
+                            @endif
                         </div>
                         <div>
                             <p class="valdo-heading-md" style="font-size:1rem;">{{ $karyawan->nama_karyawan }}</p>
@@ -174,6 +178,32 @@
                         @error('alamat')
                             <span class="valdo-input-error">{{ $message }}</span>
                         @enderror
+                    </div>
+
+                    {{-- Foto --}}
+                    <div class="valdo-input-group sm:col-span-2">
+                        <label class="valdo-label">Ubah Foto Profil <span class="valdo-text-muted" style="font-size:0.75rem; font-weight:normal;">(Opsional, max 2MB)</span></label>
+                        <div class="flex items-center gap-4 mt-2">
+                            <div class="w-20 h-20 rounded-xl border border-dashed border-gray-600 flex items-center justify-center overflow-hidden flex-shrink-0" style="background-color: var(--color-base-200);">
+                                @if ($foto_baru)
+                                    <img src="{{ $foto_baru->temporaryUrl() }}" class="w-full h-full object-cover">
+                                @elseif ($karyawan->foto)
+                                    <img src="{{ Storage::url($karyawan->foto) }}" class="w-full h-full object-cover">
+                                @else
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b7190" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                @endif
+                            </div>
+                            <div class="flex-1">
+                                <input type="file" wire:model="foto_baru" accept="image/*" class="valdo-input @error('foto_baru') error @enderror" style="padding-top: 8px;">
+                                <div wire:loading wire:target="foto_baru" class="text-xs text-blue-500 mt-2">Mengunggah preview...</div>
+                                @error('foto_baru')
+                                    <span class="valdo-input-error block mt-1">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
 
                 </div>

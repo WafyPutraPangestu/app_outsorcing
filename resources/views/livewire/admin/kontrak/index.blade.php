@@ -168,9 +168,15 @@
                     <tr wire:key="karyawan-{{ $karyawan->id_karyawan }}">
                         <td>
                             <div class="flex items-center gap-3">
-                                <div class="valdo-table-avatar">{{ $initial }}</div>
+                                <div class="valdo-table-avatar" style="overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;">
+                                    @if ($karyawan->foto)
+                                        <img src="{{ Storage::url($karyawan->foto) }}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+                                    @else
+                                        {{ $initial }}
+                                    @endif
+                                </div>
                                 <div>
-                                    <div style="color:#e2e5f0; font-weight:600; font-size:0.875rem;">
+                                    <div style="color:#111827; font-weight:600; font-size:0.875rem;">
                                         {{ $karyawan->nama_karyawan }}</div>
                                     <div class="valdo-text-muted" style="font-size:0.75rem;">
                                         {{ $karyawan->jenis_kelamin }}</div>

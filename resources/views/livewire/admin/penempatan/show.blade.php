@@ -28,8 +28,12 @@
             </h3>
             <div class="flex items-center gap-4 relative z-10">
                 <div
-                    class="w-14 h-14 rounded-full bg-base-200 border border-white/5 flex items-center justify-center font-bold text-xl text-black shadow-neu-inset">
-                    {{ substr($penempatan->karyawan->nama_karyawan, 0, 1) }}
+                    class="w-14 h-14 rounded-full bg-base-200 border border-white/5 flex items-center justify-center font-bold text-xl text-black shadow-neu-inset overflow-hidden">
+                    @if ($penempatan->karyawan && $penempatan->karyawan->foto)
+                        <img src="{{ Storage::url($penempatan->karyawan->foto) }}" alt="Foto" class="w-full h-full object-cover">
+                    @else
+                        {{ substr($penempatan->karyawan->nama_karyawan, 0, 1) }}
+                    @endif
                 </div>
                 <div>
                     <h2 class="text-xl font-bold text-black">{{ $penempatan->karyawan->nama_karyawan }}</h2>

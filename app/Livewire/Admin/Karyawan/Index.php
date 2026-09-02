@@ -25,7 +25,7 @@ class Index extends Component
     public function render()
     {
         $karyawans = Karyawan::query()
-            ->select(['id_karyawan', 'nik', 'nama_karyawan', 'posisi', 'status_karyawan'])
+            ->select(['id_karyawan', 'nik', 'nama_karyawan', 'posisi', 'status_karyawan', 'foto'])
             ->when($this->search, function ($query) {
                 $query->where('nama_karyawan', 'like', '%' . $this->search . '%')
                     ->orWhere('nik', 'like', '%' . $this->search . '%');

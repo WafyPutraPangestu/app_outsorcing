@@ -58,12 +58,23 @@
                     @forelse ($penempatans as $penempatan)
                         <tr class="group hover:bg-base-400/30 transition-colors">
                             <td>
-                                <!-- Tambahkan ?-> dan nilai fallback ?? -->
-                                <div class="font-bold text-black">
-                                    {{ $penempatan->karyawan?->nama_karyawan ?? 'Karyawan Dihapus/Tidak Ditemukan' }}
-                                </div>
-                                <div class="text-xs text-gray-500 font-mono mt-0.5">NIK:
-                                    {{ $penempatan->karyawan?->nik ?? '-' }}
+                                <div class="flex items-center gap-3">
+                                    <div class="valdo-table-avatar flex-shrink-0" style="width:36px;height:36px;border-radius:10px;font-size:0.85rem;font-weight:700;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;background:var(--color-base-300);color:#8892b0;">
+                                        @if ($penempatan->karyawan && $penempatan->karyawan->foto)
+                                            <img src="{{ Storage::url($penempatan->karyawan->foto) }}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+                                        @else
+                                            {{ strtoupper(substr($penempatan->karyawan?->nama_karyawan ?? '?', 0, 2)) }}
+                                        @endif
+                                    </div>
+                                    <div>
+                                        <!-- Tambahkan ?-> dan nilai fallback ?? -->
+                                        <div class="font-bold text-black">
+                                            {{ $penempatan->karyawan?->nama_karyawan ?? 'Karyawan Dihapus/Tidak Ditemukan' }}
+                                        </div>
+                                        <div class="text-xs text-gray-500 font-mono mt-0.5">NIK:
+                                            {{ $penempatan->karyawan?->nik ?? '-' }}
+                                        </div>
+                                    </div>
                                 </div>
                             </td>
                             <td>

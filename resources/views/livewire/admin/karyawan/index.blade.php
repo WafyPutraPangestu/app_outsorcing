@@ -160,8 +160,12 @@
                             </td>
                             <td>
                                 <div class="flex items-center gap-3">
-                                    <div class="valdo-table-avatar" style="flex-shrink:0;">
-                                        {{ strtoupper(substr($k->nama_karyawan, 0, 2)) }}
+                                    <div class="valdo-table-avatar" style="flex-shrink:0;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;">
+                                        @if ($k->foto)
+                                            <img src="{{ Storage::url($k->foto) }}" alt="Foto" style="width:100%;height:100%;object-fit:cover;">
+                                        @else
+                                            {{ strtoupper(substr($k->nama_karyawan, 0, 2)) }}
+                                        @endif
                                     </div>
                                     <span style="color:#c8ccdc; font-weight:500;">{{ $k->nama_karyawan }}</span>
                                 </div>

@@ -6,13 +6,16 @@ use App\Models\Karyawan;
 use App\Models\LogAktivitas;
 use Livewire\Component;
 use Livewire\Attributes\Title;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
 
 #[Title('Tambah Karyawan Baru')]
 class Create extends Component
 {
+    use WithFileUploads;
+
     // Form Properties
-    public $nik, $nama_karyawan, $jenis_kelamin = 'Laki-laki', $alamat, $no_hp, $posisi;
+    public $nik, $nama_karyawan, $jenis_kelamin = 'Laki-laki', $alamat, $no_hp, $posisi, $foto;
 
     protected function rules()
     {
@@ -23,12 +26,17 @@ class Create extends Component
             'alamat' => 'nullable|string',
             'no_hp' => 'nullable|numeric|digits_between:10,15',
             'posisi' => 'required|string|max:100',
+            'foto' => 'nullable|image|max:2048',
         ];
     }
 
     public function save()
     {
         $validated = $this->validate();
+
+        if ($this->foto) {
+            $validated['foto'] = $this->foto->store('karyawan', 'public');
+        }
 
         DB::transaction(function () use ($validated) {
             $karyawan = Karyawan::create($validated);
