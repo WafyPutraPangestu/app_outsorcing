@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'status_karyawan' => 'aktif',
         ]);
         $karyawan2 = Karyawan::create([
-            'nik' => 'KRY-2026002',
+            'nik' => 'KRY-2026003',
             'nama_karyawan' => 'Siti Aminah',
             'jenis_kelamin' => 'Perempuan',
             'alamat' => 'Jl. Melati Jingga, Jakarta Selatan',
