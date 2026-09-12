@@ -204,7 +204,7 @@ class MonitorEvaluasi extends Component
                     'karyawan'    => $kontrak->karyawan,
                     'penempatan'  => $penempatan,
                     'avg_nilai'   => $avgNilai ? round($avgNilai, 1) : null,
-                    'rekomendasi' => $penempatan->rekomendasi_sistem ?? 'belum_dievaluasi',
+                    'rekomendasi' => $penempatan?->rekomendasi_sistem ?? 'belum_dievaluasi',
                     'sisa_hari'   => (int) now()->diffInDays($kontrak->tanggal_selesai, false),
                 ];
             });
